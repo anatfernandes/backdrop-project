@@ -14,6 +14,7 @@ const themes: ThemesType = {
       primary: "#6C043C",
       secondary: "#0EC0C1",
       red: "#EB4335",
+      gold: "#F5B04B",
       ...neutral,
     },
   },

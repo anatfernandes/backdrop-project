@@ -8,6 +8,7 @@ type ThemeType = {
     primary: string;
     secondary: string;
     red: string;
+    gold: string;
   };
 };
 

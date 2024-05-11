@@ -143,6 +143,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
       --primary: ${(prop) => prop.theme.colors.primary};
       --secondary: ${(prop) => prop.theme.colors.secondary};
       --red: ${(prop) => prop.theme.colors.red};
+      --gold: ${(prop) => prop.theme.colors.gold};
     }
 
     /* My styles */
