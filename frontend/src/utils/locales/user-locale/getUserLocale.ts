@@ -1,10 +1,20 @@
 import { availableLocales } from "../index";
 
-function getUserLocale() {
-  const userLocales = navigator.languages?.length ? navigator.languages : [navigator.language];
-  const userFormattedLocales = userLocales.map((locale) => locale.split(/-|_/)[0].trim());
+function getLocaleFromLocalStorage() {
+  return JSON.parse(localStorage.getItem("our-cause.com") ?? "{}")?.lang;
+}
 
-  return userFormattedLocales.find((locale) => availableLocales[locale]) || "en";
+function getLocalesFromNavigator() {
+  const userLocales = navigator.languages?.length ? navigator.languages : [navigator.language];
+  return userLocales.map((locale) => locale.split(/-|_/)[0].trim());
+}
+
+function getUserLocale() {
+  const storageLocale = getLocaleFromLocalStorage();
+
+  if (storageLocale && availableLocales[storageLocale]) return storageLocale;
+
+  return getLocalesFromNavigator().find((locale) => availableLocales[locale]) || "en";
 }
 
 export { getUserLocale };
