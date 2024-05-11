@@ -17,7 +17,6 @@ module.exports = {
     "semi-spacing": ["error", { before: false, after: true }],
     "object-curly-spacing": ["error", "always"],
     "space-before-blocks": ["error", "always"],
-    "@typescript-eslint/type-annotation-spacing": ["error", { after: true, before: false }],
     "arrow-spacing": ["error", { before: true, after: true }],
     "no-cond-assign": ["error", "always"],
     "no-console": "warn",
