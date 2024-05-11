@@ -1,10 +1,10 @@
-import { useTranslation } from "react-i18next";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ThemeContextProvider } from "../../contexts";
+import { useLocale } from "../../hooks";
 
 function App() {
-  const [t] = useTranslation("global");
+  const { t } = useLocale();
 
   return (
     <BrowserRouter>
