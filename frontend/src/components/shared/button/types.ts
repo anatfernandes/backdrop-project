@@ -6,10 +6,10 @@ type ButtonParamsType = {
   type?: ButtonType;
   loading?: boolean;
   rounded?: boolean;
-  width: string;
-  margin: string;
-  radius: string;
-  padding: string;
+  width?: string;
+  margin?: string;
+  radius?: string;
+  padding?: string;
   [key: string]: any;
 };
 
