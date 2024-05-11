@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import { GlobalStyleType } from "./types";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<GlobalStyleType>`
     /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
@@ -135,13 +136,13 @@ const GlobalStyle = createGlobalStyle`
       box-sizing: border-box;
       transition: all 0.2s linear;
       scroll-behavior: smooth;
-      --white: #F2F2F2;
-      --light-gray: #DFDFDF;
-      --dark-gray: #808080;
-      --black: #210123;
-      --primary: #6C043C;
-      --secondary: #0EC0C1;
-      --red: #EB4335;
+      --white: ${(prop) => prop.theme.colors.white};
+      --light-gray: ${(prop) => prop.theme.colors.lightGray};
+      --dark-gray: ${(prop) => prop.theme.colors.darkGray};
+      --black: ${(prop) => prop.theme.colors.black};
+      --primary: ${(prop) => prop.theme.colors.primary};
+      --secondary: ${(prop) => prop.theme.colors.secondary};
+      --red: ${(prop) => prop.theme.colors.red};
     }
 
     /* My styles */

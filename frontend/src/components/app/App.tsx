@@ -1,14 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { BrowserRouter } from "react-router-dom";
-import { GlobalStyle } from "../../styles/globalstyles/globalStyles";
+import { ThemeContextProvider } from "../../contexts";
 
 function App() {
   const [t] = useTranslation("global");
 
   return (
     <BrowserRouter>
-      <GlobalStyle />
-      <p>{t("Coming")}</p>
+      <ThemeContextProvider>
+        <p>{t("Coming")}</p>
+      </ThemeContextProvider>
     </BrowserRouter>
   );
 }
