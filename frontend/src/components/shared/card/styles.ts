@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { WrapperStylePropsType, DivisionStylePropsType } from "./types";
+import { WrapperPropsType, DividerPropsType } from "./types";
 
-const Wrapper = styled.article<WrapperStylePropsType>`
+const Wrapper = styled.article<WrapperPropsType>`
   height: auto;
   width: ${(props) => props.$width};
   max-width: var(--max-view);
@@ -20,7 +20,7 @@ const Wrapper = styled.article<WrapperStylePropsType>`
   }
 `;
 
-const Divider = styled.hr<DivisionStylePropsType>`
+const Divider = styled.hr<DividerPropsType>`
   width: 100%;
   border: none;
   border-top: 1px solid var(--light-gray);

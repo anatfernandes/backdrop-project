@@ -1,10 +1,11 @@
 import { CardParamsType, CardDividerParamsType } from "./types";
 import { Wrapper, Divider } from "./styles";
 
-function Card({ children, ...other }: Readonly<CardParamsType>) {
+function Card({ children, config = {}, ...other }: Readonly<CardParamsType>) {
   const options = {
-    $width: other.width ?? "100%",
-    $margin: other.margin ?? "0",
+    $width: "100%",
+    $margin: "0",
+    ...config,
   };
 
   return (

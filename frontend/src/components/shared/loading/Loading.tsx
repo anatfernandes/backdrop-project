@@ -2,7 +2,7 @@ import { Oval as LoaderSpinner } from "react-loader-spinner";
 import { LoadingParamsType } from "./types";
 import { Wrapper } from "./styles";
 
-function Loading({ size, color, margin = "20px auto" }: LoadingParamsType) {
+function Loading({ size, color, margin = "20px auto" }: Readonly<LoadingParamsType>) {
   let loadingSize = 36;
 
   if (size === "small") loadingSize = 24;

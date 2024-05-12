@@ -26,7 +26,7 @@ import {
 } from "react-icons/io5";
 import { IconParamsType } from "./types";
 
-const types = Object.freeze({
+const icons = Object.freeze({
   home: IoHome,
   search: IoSearch,
   menu: IoMenuOutline,
@@ -53,8 +53,8 @@ const types = Object.freeze({
   "up-arrow": BiSolidUpArrow,
 });
 
-function Icon({ type, ...otherProps }: IconParamsType) {
-  const ReactIcon = types[type];
+function Icon({ type, ...otherProps }: Readonly<IconParamsType>) {
+  const ReactIcon = icons[type];
   return <ReactIcon title={type} size="1.5rem" color="var(--black)" {...otherProps} />;
 }
 

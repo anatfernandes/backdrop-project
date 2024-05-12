@@ -7,19 +7,20 @@ function Button({
   type,
   rounded,
   loading,
+  config = {},
   ...other
 }: Readonly<ButtonParamsType>) {
   const loadingColor = type === "primary" ? "var(--primary)" : "var(--white)";
-  const config = {
-    $width: other.width ?? "100%",
-    $padding: other.padding ?? "7px",
-    $margin: other.margin ?? "0 auto",
+  const defaultConfig = {
+    $width: "100%",
+    $padding: "7px",
+    $margin: "0 auto",
     $radius: rounded ? "50px" : "3px",
     $buttonType: type ?? "primary",
   };
 
   return (
-    <Wrapper {...config} {...other}>
+    <Wrapper {...defaultConfig} {...config} {...other}>
       {loading ? <Loading size="small" margin="0" color={loadingColor} /> : children}
     </Wrapper>
   );

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+type CardStyleConfigType = Partial<WrapperPropsType>;
+
 type CardParamsType = {
   children: React.ReactNode;
-  width?: string;
-  margin?: string;
+  config?: CardStyleConfigType;
   [key: string]: any;
 };
 
@@ -11,18 +12,13 @@ type CardDividerParamsType = {
   [key: string]: any;
 };
 
-type WrapperStylePropsType = {
+type WrapperPropsType = {
   $width: string;
   $margin: string;
 };
 
-type DivisionStylePropsType = {
+type DividerPropsType = {
   $margin: string;
 };
 
-export type {
-  CardParamsType,
-  CardDividerParamsType,
-  WrapperStylePropsType,
-  DivisionStylePropsType,
-};
+export type { CardParamsType, CardDividerParamsType, WrapperPropsType, DividerPropsType };
