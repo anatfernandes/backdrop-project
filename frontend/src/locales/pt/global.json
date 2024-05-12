@@ -1,6 +1,16 @@
 {
   "Coming": "Em breve :)",
+  "Modal": {
+    "DeletePost": {
+      "Title": "Deletar Postagem",
+      "Message": "Você tem certeza que deseja apagar a postagem?",
+      "Warning": "Essa ação não pode ser desfeita!"
+    }
+  },
   "Common": {
-    "NoData": "Não há informações para mostrar por agora :/"
+    "NoData": "Não há informações para mostrar por agora :/",
+    "Cancel": "Cancelar",
+    "Delete": "Deletar",
+    "Attention": "Atenção"
   }
 }

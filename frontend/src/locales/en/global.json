@@ -1,6 +1,16 @@
 {
   "Coming": "Coming soon :)",
+  "Modal": {
+    "DeletePost": {
+      "Title": "Delete Post",
+      "Message": "Are you sure you want to delete the post?",
+      "Warning": "This action cannot be undone!"
+    }
+  },
   "Common": {
-    "NoData": "There is no data to show for now :/"
+    "NoData": "There is no data to show for now :/",
+    "Cancel": "Cancel",
+    "Delete": "Delete",
+    "Attention": "Attention"
   }
 }
