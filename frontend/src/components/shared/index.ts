@@ -4,3 +4,4 @@ export * from "./card";
 export * from "./button";
 export * from "./title";
 export * from "./no-data";
+export * from "./avatar";
