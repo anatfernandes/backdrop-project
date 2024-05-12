@@ -4,7 +4,7 @@ import { WrapperStylePropsType, DivisionStylePropsType } from "./types";
 const Wrapper = styled.article<WrapperStylePropsType>`
   height: auto;
   width: ${(props) => props.$width};
-  max-width: 600px;
+  max-width: var(--max-view);
   padding: 20px;
   border-radius: 5px;
   margin: ${(props) => props.$margin};

@@ -144,6 +144,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
       --secondary: ${(prop) => prop.theme.colors.secondary};
       --red: ${(prop) => prop.theme.colors.red};
       --gold: ${(prop) => prop.theme.colors.gold};
+      --max-view: 600px;
     }
 
     /* My styles */
@@ -162,7 +163,12 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
     }
 
     #root {
-      height: 100%
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     main {
