@@ -178,6 +178,19 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
       padding: 65px 0 0;
     }
 
+    strong,
+    b {
+      font-weight: 700;
+    }
+
+    i {
+      font-style: italic;
+    }
+
+    u {
+      text-decoration: underline;
+    }
+
     @media (max-width: 500px) {
       main {
         padding: 65px 0;
