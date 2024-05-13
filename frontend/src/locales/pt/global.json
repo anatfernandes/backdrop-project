@@ -1,5 +1,16 @@
 {
   "Coming": "Em breve :)",
+  "Search": {
+    "Search": "Buscar usuários"
+  },
+  "Pages": {
+    "Home": "Página inicial",
+    "Explore": "Exlorar",
+    "CreatePost": "Criar publicação",
+    "Notifications": "Notificações",
+    "Profile": "Meu perfil",
+    "Settings": "Configurações"
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Deletar Postagem",
@@ -11,6 +22,7 @@
     "NoData": "Não há informações para mostrar por agora :/",
     "Cancel": "Cancelar",
     "Delete": "Deletar",
-    "Attention": "Atenção"
+    "Attention": "Atenção",
+    "Search": "Buscar"
   }
 }
