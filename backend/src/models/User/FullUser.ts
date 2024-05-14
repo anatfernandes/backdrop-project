@@ -3,7 +3,7 @@ import { ArrayMaxSize, Length } from "class-validator";
 import { Topic, UserType } from "../index";
 
 @ObjectType()
-class User {
+class FullUser {
   @Field(() => ID)
   id: string;
 
@@ -28,6 +28,9 @@ class User {
   @Length(0, 255)
   about: string;
 
+  @Field()
+  password: string;
+
   @Field(() => UserType)
   type: UserType;
 
@@ -45,4 +48,4 @@ class User {
   updatedAt: Date;
 }
 
-export { User };
+export { FullUser };

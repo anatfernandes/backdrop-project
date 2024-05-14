@@ -6,6 +6,7 @@ import { ApolloServer } from "apollo-server";
 import { buildSchema } from "type-graphql";
 import { loadEnv } from "./config/env";
 import { resolvers } from "./graphql-api";
+import { signRoute } from "./routers";
 
 loadEnv();
 
@@ -13,6 +14,7 @@ async function startApolloServer() {
   const schema = await buildSchema({
     resolvers,
     emitSchemaFile: path.resolve(process.cwd(), "schema.graphql"),
+    validate: true,
   });
 
   const apolloServer = new ApolloServer({ schema });
@@ -40,7 +42,8 @@ async function startServer() {
     .use(express.json())
     .use(cors())
     .use(apolloMiddleware)
-    .get("/health", (_, res) => res.status(200).send("Server it's alive!!!"));
+    .get("/health", (_, res) => res.status(200).send("Server it's alive!!!"))
+    .use("/auth", signRoute);
 
   return { server };
 }
