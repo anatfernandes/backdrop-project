@@ -172,10 +172,14 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
     }
 
     main {
-      width: 100%;
+      width: 90%;
       height: 100%;
 	    max-width: 700px;
-      padding: 65px 0 0;
+      padding: 95px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     strong,

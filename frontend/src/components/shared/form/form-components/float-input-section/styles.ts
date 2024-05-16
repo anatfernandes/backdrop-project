@@ -6,7 +6,6 @@ const Wrapper = styled.section`
   input {
     width: 100%;
     height: 36px;
-    padding: 0 10px;
     border-radius: 5px;
     border: 1.6px solid var(--light-gray);
     background-color: transparent;
@@ -54,6 +53,17 @@ const Wrapper = styled.section`
     padding: 0.15em;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="crimson" d="M110 16 76 57v1l51-10v32l-51-9-1 1 35 39-28 17-18-50-1 1-18 49-28-17 34-40-50 9V48l50 10v-1L17 17 46 1l17 48h1L82 1l28 15z"/></svg>')
       no-repeat 0 25%;
+  }
+
+  &:has(#password-visibility) input {
+    padding: 1.7rem 40px 0.8rem 0.8rem;
+  }
+
+  #password-visibility {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
   }
 `;
 

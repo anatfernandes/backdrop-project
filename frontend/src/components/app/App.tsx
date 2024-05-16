@@ -1,17 +1,17 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ThemeContextProvider } from "../../contexts";
-import { useLocale } from "../../hooks";
+import { SignPage } from "../../pages";
 
 function App() {
-  const { t } = useLocale();
-
   return (
     <BrowserRouter>
       <ThemeContextProvider>
         <ToastContainer />
 
-        <p>{t("Coming")}</p>
+        <Routes>
+          <Route path="/sign-up" element={<SignPage page="sign-up" />} />
+        </Routes>
       </ThemeContextProvider>
     </BrowserRouter>
   );

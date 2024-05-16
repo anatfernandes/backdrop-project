@@ -3,6 +3,53 @@
   "Search": {
     "Search": "Buscar usuários"
   },
+  "User": {
+    "Name": {
+      "Name": "Nome",
+      "Placeholder": "Insira seu nome"
+    },
+    "Username": {
+      "Username": "Nome de usuário",
+      "Placeholder": "Insira seu nome de usuário"
+    },
+    "Avatar": {
+      "Avatar": "Avatar",
+      "Placeholder": "Insira o link de seu avatar"
+    },
+    "Email": {
+      "Email": "Email",
+      "Placeholder": "email@gmail.com"
+    },
+    "Password": {
+      "Password": "Senha",
+      "Placeholder": "Insira sua senha",
+      "Show": "Exibir senha",
+      "Hide": "Ocultar senha"
+    },
+    "ConfirmPassword": {
+      "ConfirmPassword": "Confirme a senha",
+      "Placeholder": "Confirme sua senha"
+    }
+  },
+  "SignUp": {
+    "SignUp": "Cadastro",
+    "SignUpImperative": "Cadastrar-se",
+    "HaveAccount": "Já tem uma conta?",
+    "FormValidation": {
+      "PasswordMinLengthRequired": "A senha deve ter no mínimo 6 caracteres!",
+      "PasswordEquality": "As senhas devem ser iguais!",
+      "NameLengthRequired": "Seu nome deve ter entre 3 e 30 caracteres!",
+      "UsernameLengthRequired": "Seu nome de usuário deve ter entre 3 e 30 caracteres!",
+      "AvatarExtension": "Seu avatar deve ser uma imagem!"
+    },
+    "@Submit": {
+      "Success": "Cadastro realizado com sucesso!",
+      "Error": "Não foi possível realizar o cadastro. Por favor, tente novamente."
+    }
+  },
+  "SignIn": {
+    "SignInImperative": "Entre"
+  },
   "Pages": {
     "Home": "Página inicial",
     "Explore": "Exlorar",
