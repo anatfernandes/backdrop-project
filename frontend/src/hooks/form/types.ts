@@ -5,6 +5,10 @@ type FormType = {
   [key: string]: any;
 };
 
+type FormOptionsType = {
+  validations?: () => ValidateFormParamType;
+};
+
 type ValidationType = {
   rules: boolean[];
   message: string;
@@ -12,14 +16,17 @@ type ValidationType = {
 
 type ValidateFormParamType = ValidationType[];
 
-type HandleChangeEventParamType = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+type HandleChangeEventParamType = React.ChangeEvent<
+  HTMLInputElement | HTMLTextAreaElement
+>;
 
 type HandleFormEventParamType = React.FormEvent<HTMLFormElement>;
 
 export type {
   CallbackType,
   FormType,
+  FormOptionsType,
   HandleFormEventParamType,
   HandleChangeEventParamType,
-  ValidateFormParamType
+  ValidateFormParamType,
 };

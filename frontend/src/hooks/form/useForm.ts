@@ -5,10 +5,11 @@ import {
   FormType,
   HandleFormEventParamType,
   HandleChangeEventParamType,
-  ValidateFormParamType
+  ValidateFormParamType,
+  FormOptionsType,
 } from "./types";
 
-function useForm(defaultForm = {}) {
+function useForm(defaultForm = {}, options: FormOptionsType = {}) {
   const [form, setForm] = useState<FormType>(defaultForm);
   const toast = useToast();
 
@@ -18,7 +19,9 @@ function useForm(defaultForm = {}) {
   }
 
   function validateForm(validations: ValidateFormParamType = []) {
-    const error = validations.find((validation) => validation.rules.some((rule) => !rule));
+    const error = validations.find((validation) =>
+      validation.rules.some((rule) => !rule),
+    );
 
     if (!error) return { isValid: true };
 
@@ -26,9 +29,17 @@ function useForm(defaultForm = {}) {
     return { isValid: false };
   }
 
-  function handleForm(event: HandleFormEventParamType, callback: CallbackType = () => {}) {
+  function handleForm(
+    event: HandleFormEventParamType,
+    callback: CallbackType = () => {},
+  ) {
     event.preventDefault();
-    callback(form);
+
+    if (!options.validations) return callback(form);
+
+    const validate = validateForm(options.validations());
+
+    if (validate.isValid) callback(form);
   }
 
   function clearForm() {
