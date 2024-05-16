@@ -11,6 +11,7 @@ function App() {
 
         <Routes>
           <Route path="/sign-up" element={<SignPage page="sign-up" />} />
+          <Route path="/sign-in" element={<SignPage page="sign-in" />} />
         </Routes>
       </ThemeContextProvider>
     </BrowserRouter>

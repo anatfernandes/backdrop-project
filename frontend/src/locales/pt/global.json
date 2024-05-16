@@ -48,7 +48,15 @@
     }
   },
   "SignIn": {
-    "SignInImperative": "Entre"
+    "SignIn": "Login",
+    "SignInImperative": "Entre",
+    "SignInEnter": "Entrar",
+    "HaveAccount": "Não tem uma conta?",
+    "SignUp": "Cadastre-se",
+    "@Submit": {
+      "Success": "Login realizado com sucesso!",
+      "Error": "Não foi possível realizar o login. Por favor, tente novamente."
+    }
   },
   "Pages": {
     "Home": "Página inicial",

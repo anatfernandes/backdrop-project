@@ -1,5 +1,7 @@
-import { PostSignUpParamsType } from "../../services";
+import { PostSignInParamsType, PostSignUpParamsType } from "../../services";
 
 type SingUpForm = PostSignUpParamsType & { confirmPassword: string };
 
-export type { SingUpForm };
+type SignInForm = PostSignInParamsType;
+
+export type { SingUpForm, SignInForm };

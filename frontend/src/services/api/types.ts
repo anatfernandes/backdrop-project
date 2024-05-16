@@ -8,4 +8,6 @@ type PostSignUpParamsType = Pick<
   "name" | "username" | "email" | "avatar" | "password"
 >;
 
-export type { UpsertRequestParamsType, PostSignUpParamsType };
+type PostSignInParamsType = Pick<FullUserType, "email" | "password">;
+
+export type { UpsertRequestParamsType, PostSignUpParamsType, PostSignInParamsType };

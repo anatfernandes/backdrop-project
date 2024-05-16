@@ -48,7 +48,15 @@
     }
   },
   "SignIn": {
-    "SignInImperative": "Sign in"
+    "SignIn": "Login",
+    "SignInImperative": "Sign in",
+    "SignInEnter": "Sign in",
+    "HaveAccount": "Don't have an account?",
+    "SignUp": "Sign up",
+    "@Submit": {
+      "Success": "Login successful!",
+      "Error": "Unable to log in. Please try again."
+    }
   },
   "Pages": {
     "Home": "Home",

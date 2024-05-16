@@ -1,4 +1,8 @@
-import { PostSignUpParamsType, UpsertRequestParamsType } from "./types";
+import {
+  PostSignInParamsType,
+  PostSignUpParamsType,
+  UpsertRequestParamsType,
+} from "./types";
 
 const BASE_URI = import.meta.env.VITE_API_URI;
 
@@ -52,8 +56,13 @@ const postSignUp = (body: PostSignUpParamsType) => {
   return postRequest({ path: "/auth/sign-up", body });
 };
 
+const postSignIn = (body: PostSignInParamsType) => {
+  return postRequest({ path: "/auth/sign-in", body, haveResponse: true });
+};
+
 const api = {
   postSignUp,
+  postSignIn,
 };
 
 export { api };
