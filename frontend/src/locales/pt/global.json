@@ -78,6 +78,7 @@
     "Cancel": "Cancelar",
     "Delete": "Deletar",
     "Attention": "Atenção",
-    "Search": "Buscar"
+    "Search": "Buscar",
+    "NotLoggedUserError": "É preciso estar logado para prosseguir!"
   }
 }

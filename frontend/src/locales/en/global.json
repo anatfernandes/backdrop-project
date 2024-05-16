@@ -78,6 +78,7 @@
     "Cancel": "Cancel",
     "Delete": "Delete",
     "Attention": "Attention",
-    "Search": "Search"
+    "Search": "Search",
+    "NotLoggedUserError": "You must be logged in to proceed!"
   }
 }

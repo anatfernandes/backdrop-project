@@ -1,6 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ThemeContextProvider, UserContextProvider } from "../../contexts";
+import { PrivatePage } from "../private-page";
+import { Header } from "../header";
+import { Footer } from "../footer";
 import { SignPage } from "../../pages";
 
 function App() {
@@ -13,6 +16,17 @@ function App() {
           <Routes>
             <Route path="/sign-up" element={<SignPage page="sign-up" />} />
             <Route path="/sign-in" element={<SignPage page="sign-in" />} />
+
+            <Route
+              path="/"
+              element={
+                <PrivatePage>
+                  <Header />
+                  <Outlet />
+                  <Footer />
+                </PrivatePage>
+              }
+            ></Route>
           </Routes>
         </UserContextProvider>
       </ThemeContextProvider>
