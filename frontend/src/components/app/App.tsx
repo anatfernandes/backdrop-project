@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { ThemeContextProvider } from "../../contexts";
+import { ThemeContextProvider, UserContextProvider } from "../../contexts";
 import { SignPage } from "../../pages";
 
 function App() {
@@ -9,10 +9,12 @@ function App() {
       <ThemeContextProvider>
         <ToastContainer />
 
-        <Routes>
-          <Route path="/sign-up" element={<SignPage page="sign-up" />} />
-          <Route path="/sign-in" element={<SignPage page="sign-in" />} />
-        </Routes>
+        <UserContextProvider>
+          <Routes>
+            <Route path="/sign-up" element={<SignPage page="sign-up" />} />
+            <Route path="/sign-in" element={<SignPage page="sign-in" />} />
+          </Routes>
+        </UserContextProvider>
       </ThemeContextProvider>
     </BrowserRouter>
   );
