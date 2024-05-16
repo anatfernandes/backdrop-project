@@ -204,7 +204,7 @@ function SignUp() {
           )}
         </Form.FloatInputSection>
 
-        <Form.Button loading={loading} type="secondary">
+        <Form.Button type="secondary" loading={loading} disabled={loading}>
           {t("SignUp.SignUpImperative")}{" "}
           <Icon type="continue" size="1.3rem" color="var(--white)" />
         </Form.Button>

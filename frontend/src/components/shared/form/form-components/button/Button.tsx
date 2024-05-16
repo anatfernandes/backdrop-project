@@ -2,7 +2,13 @@ import { Button as SharedButton } from "../../../index";
 import { ButtonParamsType, ConfigType } from "./types";
 import { Wrapper } from "./styles";
 
-function Button({ children, type = "primary", loading, ...other }: ButtonParamsType) {
+function Button({
+  children,
+  type = "primary",
+  loading,
+  disabled,
+  ...other
+}: ButtonParamsType) {
   let buttonConfig: ConfigType = {
     config: {
       $width: "100px",
@@ -11,6 +17,7 @@ function Button({ children, type = "primary", loading, ...other }: ButtonParamsT
     },
     rounded: false,
     loading,
+    disabled,
   };
 
   if (type === "secondary") {

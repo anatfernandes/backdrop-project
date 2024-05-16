@@ -27,7 +27,7 @@ const Wrapper = styled.button<WrapperStylePropsType>`
 
   &:disabled {
     filter: brightness(0.6);
-    cursor: inherit;
+    cursor: not-allowed;
   }
 
   ${(props) =>

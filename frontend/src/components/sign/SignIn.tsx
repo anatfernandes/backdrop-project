@@ -108,7 +108,7 @@ function SignIn() {
           )}
         </Form.FloatInputSection>
 
-        <Form.Button loading={loading} type="secondary">
+        <Form.Button type="secondary" loading={loading} disabled={loading}>
           {t("SignIn.SignInEnter")}{" "}
           <Icon type="continue" size="1.3rem" color="var(--white)" />
         </Form.Button>
