@@ -10,4 +10,9 @@ const postSignUp = Joi.object({
   password: Joi.string().min(6).max(120).required(),
 });
 
-export { postSignUp };
+const postSignIn = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).max(120).required(),
+});
+
+export { postSignUp, postSignIn };

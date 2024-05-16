@@ -1,8 +1,10 @@
 import bcrypt from "bcrypt";
-import { conflictError } from "../../helpers/errors.helper";
-import { createDefaultUser } from "../../helpers/create-default-entities";
+import jwt from "jsonwebtoken";
+import { pick } from "lodash";
+import { conflictError, notFoundError } from "../../helpers/errors.helper";
+import { createDefaultSession, createDefaultUser } from "../../helpers/create-default-entities";
 import * as repository from "../../repositories/sign/sign.repository";
-import { PostSignUpParamsType } from "./types";
+import { FullUser, PostSignInParamsType, PostSignUpParamsType } from "./types";
 
 async function postSignUp(data: PostSignUpParamsType) {
   const haveUserWithEmail = await repository.findUserByEmail(data.email);
@@ -18,4 +20,23 @@ async function postSignUp(data: PostSignUpParamsType) {
   return repository.createUser(newUser);
 }
 
-export { postSignUp };
+async function postSignIn(data: PostSignInParamsType) {
+  const user = (await repository.findUserByEmail(data.email)) as FullUser;
+
+  if (!user || !bcrypt.compareSync(data.password, user.password)) {
+    throw notFoundError("Invalid Email/Password!");
+  }
+
+  const token = jwt.sign({ user: user.id }, process.env.JWT_SECRET ?? "JWT_SECRET");
+
+  const newSession = createDefaultSession({ user: user.id, token });
+
+  await repository.createSession(newSession);
+
+  return {
+    token,
+    ...pick(user, ["id", "name", "username", "avatar", "topics", "type"]),
+  };
+}
+
+export { postSignUp, postSignIn };

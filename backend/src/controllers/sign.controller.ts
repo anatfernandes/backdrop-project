@@ -17,4 +17,17 @@ async function postSignUp(req: Request, res: Response) {
   }
 }
 
-export { postSignUp };
+async function postSignIn(req: Request, res: Response) {
+  try {
+    const user = await signService.postSignIn(req.body);
+    return responseHelper.OK({ res, body: user });
+  } catch (error: any) {
+    if (error.name === "NotFound") {
+      return responseHelper.NOT_FOUND({ res, body: { message: error.message } });
+    }
+
+    return responseHelper.SERVER_ERROR({ res });
+  }
+}
+
+export { postSignUp, postSignIn };
