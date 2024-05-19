@@ -175,7 +175,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
       width: 90%;
       height: 100%;
 	    max-width: var(--max-view);
-      padding: 95px 0 0;
+      padding: 95px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -193,12 +193,6 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
 
     u {
       text-decoration: underline;
-    }
-
-    @media (max-width: 500px) {
-      main {
-        padding: 65px 0;
-      }
     }
 `;
 
