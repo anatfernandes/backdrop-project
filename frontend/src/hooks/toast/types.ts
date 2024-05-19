@@ -6,6 +6,7 @@ type ToastTypes = "info" | "success" | "error" | "warning";
 
 type ToastParamsType = {
   text: string;
+  title?: string;
   type?: ToastTypes;
 };
 
