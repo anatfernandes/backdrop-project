@@ -66,6 +66,65 @@
     "Profile": "My profile",
     "Settings": "Settings"
   },
+  "Post": {
+    "Locale": "Location",
+    "Links": "Links",
+    "Save": {
+      "Create": "Create post",
+      "Form": {
+        "Content": {
+          "Label": "What do you want to talk about?",
+          "Placeholder": "What's the cause today?"
+        },
+        "Topics": "Choose related topics",
+        "Locale": "Enter locale",
+        "Links": "https://campanhadobem.com.br/campanhas/example/doar#/",
+        "Post": "Post",
+        "Validations": {
+          "ContentLengthRequired": "Post must be a maximum of 2400 characters!",
+          "TopicsLengthRequired": "Select 1 to 3 topics!",
+          "LocaleLengthRequired": "The location must be a maximum of 30 characters!",
+          "LinksLengthRequired": "A maximum of 3 links are allowed!"
+        }
+      },
+      "@Submit": {
+        "Success": "Post saved successfully!",
+        "Error": "Unable to save post"
+      }
+    }
+  },
+  "Topic": {
+    "Topics": "Topics",
+    "Select": "Select topics",
+    "List": {
+      "Error": "An error occurred while searching for topics! Please reload the page."
+    },
+    "AvailableTopics": {
+      "ABORTION": "Abortion",
+      "AIR_POLLUTION": "Air pollution",
+      "ANIMAL_RIGHTS": "Animal rights",
+      "CIVIL_RIGHTS": "Civil rights",
+      "CLIMATE_CHANGE": "Climate change",
+      "CRIME": "Crime",
+      "DISCRIMINATION": "Discrimination",
+      "ECONOMIC_INEQUALITY": "Economic inequality",
+      "EDUCATION": "Education",
+      "ENVIRONMENTAL_POLITICS": "Environmental politics",
+      "EQUALITY": "Equality",
+      "HEALTHCARE": "Healthcare",
+      "HOMELESSNESS": "Homelessness",
+      "IMMIGRATION": "Immigration",
+      "MENTAL_HEALTH": "Mental health",
+      "OBESITY": "Obesity",
+      "OVERPOPULATION": "Overpopulation",
+      "POVERTY": "Poverty",
+      "RACISM": "Racism",
+      "REFUGEE_CRISIS": "Refugee",
+      "RIGHTS": "Rights",
+      "UNEMPLOYMENT": "Unemployment",
+      "WOMEN_EMPOWERMENT": "Women empowerment"
+    }
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Delete Post",
@@ -79,6 +138,8 @@
     "Delete": "Delete",
     "Attention": "Attention",
     "Search": "Search",
-    "NotLoggedUserError": "You must be logged in to proceed!"
+    "NotLoggedUserError": "You must be logged in to proceed!",
+    "Loading": "Loading...",
+    "InvalidValue": "Invalid value!"
   }
 }

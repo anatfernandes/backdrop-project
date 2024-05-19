@@ -66,6 +66,65 @@
     "Profile": "Meu perfil",
     "Settings": "Configurações"
   },
+  "Post": {
+    "Locale": "Localidade",
+    "Links": "Links",
+    "Save": {
+      "Create": "Criar postagem",
+      "Form": {
+        "Content": {
+          "Label": "Sobre o que você quer falar?",
+          "Placeholder": "Qual a causa de hoje?"
+        },
+        "Topics": "Escolha os tópicos relacionados",
+        "Locale": "Insira a localidade",
+        "Links": "https://campanhadobem.com.br/campanhas/exemplo/doar#/",
+        "Post": "Postar",
+        "Validations": {
+          "ContentLengthRequired": "A postagem deve ter no máximo 2400 carateres!",
+          "TopicsLengthRequired": "Selecione de 1 a 3 tópicos!",
+          "LocaleLengthRequired": "A localização deve ter no máximo 30 carateres!",
+          "LinksLengthRequired": "São permitidos no máximo 3 links!"
+        }
+      },
+      "@Submit": {
+        "Success": "Postagem salva com sucesso!",
+        "Error": "Não foi possível salvar a postagem"
+      }
+    }
+  },
+  "Topic": {
+    "Topics": "Tópicos",
+    "Select": "Selecione os tópicos",
+    "List": {
+      "Error": "Ocorreu um erro ao buscar os tópicos! Por favor, recarregue a página."
+    },
+    "AvailableTopics": {
+      "ABORTION": "Aborto",
+      "AIR_POLLUTION": "Poluição do ar",
+      "ANIMAL_RIGHTS": "Direito dos animais",
+      "CIVIL_RIGHTS": "Direitos civis",
+      "CLIMATE_CHANGE": "Alterações climáticas",
+      "CRIME": "Crime",
+      "DISCRIMINATION": "Discriminação",
+      "ECONOMIC_INEQUALITY": "Desigualdade econômica",
+      "EDUCATION": "Educação",
+      "ENVIRONMENTAL_POLITICS": "Política ambiental",
+      "EQUALITY": "Igualdade",
+      "HEALTHCARE": "Saúde",
+      "HOMELESSNESS": "Pessoas em situação de rua",
+      "IMMIGRATION": "Imigração",
+      "MENTAL_HEALTH": "Saúde mental",
+      "OBESITY": "Obesidade",
+      "OVERPOPULATION": "Superpopulação",
+      "POVERTY": "Pobreza",
+      "RACISM": "Racismo",
+      "REFUGEE_CRISIS": "Refugiados",
+      "RIGHTS": "Direitos",
+      "UNEMPLOYMENT": "Desemprego",
+      "WOMEN_EMPOWERMENT": "Empoderamento feminino"
+    }
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Deletar Postagem",
@@ -79,6 +138,8 @@
     "Delete": "Deletar",
     "Attention": "Atenção",
     "Search": "Buscar",
-    "NotLoggedUserError": "É preciso estar logado para prosseguir!"
+    "NotLoggedUserError": "É preciso estar logado para prosseguir!",
+    "Loading": "Carregando...",
+    "InvalidValue": "Valor inválido!"
   }
 }
