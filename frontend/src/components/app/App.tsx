@@ -4,7 +4,7 @@ import { ThemeContextProvider, UserContextProvider } from "../../contexts";
 import { PrivatePage } from "../private-page";
 import { Header } from "../header";
 import { Footer } from "../footer";
-import { SignPage } from "../../pages";
+import { SavePostPage, SignPage } from "../../pages";
 
 function App() {
   return (
@@ -26,7 +26,9 @@ function App() {
                   <Footer />
                 </PrivatePage>
               }
-            ></Route>
+            >
+              <Route path="/post" element={<SavePostPage />} />
+            </Route>
           </Routes>
         </UserContextProvider>
       </ThemeContextProvider>

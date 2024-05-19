@@ -22,6 +22,18 @@ type TopicType = {
   createdAt: string;
 };
 
+type PostType = {
+  id: string;
+  content: string;
+  topics: [TopicType];
+  links: [string];
+  locale: string;
+  owner: UserType;
+  active: boolean;
+  createdAt: string;
+  updatedAt: string;
+};
+
 enum UserTypesType {
   ADMIN = "ADMIN",
   USER = "USER",
@@ -53,4 +65,4 @@ enum TopicName {
   WOMEN_EMPOWERMENT = "WOMEN_EMPOWERMENT",
 }
 
-export type { FullUserType, UserType, UserTypesType, TopicType, TopicName };
+export type { FullUserType, UserType, UserTypesType, TopicType, TopicName, PostType };
