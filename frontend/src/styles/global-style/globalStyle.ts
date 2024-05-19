@@ -174,7 +174,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleType>`
     main {
       width: 90%;
       height: 100%;
-	    max-width: 700px;
+	    max-width: var(--max-view);
       padding: 95px 0 0;
       display: flex;
       flex-direction: column;
