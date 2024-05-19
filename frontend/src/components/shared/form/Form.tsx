@@ -1,4 +1,4 @@
-import { Button, FloatInputSection, InputSection, Title } from "./form-components";
+import { Button, FloatInputSection, InputSection, MultiSelect, Title } from "./form-components";
 import { FormParams } from "./types";
 import { Wrapper } from "./styles";
 
@@ -17,5 +17,7 @@ Form.FloatInputSection = FloatInputSection;
 Form.InputSection = InputSection;
 
 Form.Button = Button;
+
+Form.MultiSelect = MultiSelect;
 
 export { Form };
