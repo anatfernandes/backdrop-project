@@ -16,6 +16,8 @@ type ValidationType = {
 
 type ValidateFormParamType = ValidationType[];
 
+type UpdateFormParamsType = { key: string; value: any };
+
 type HandleChangeEventParamType = React.ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement
 >;
@@ -29,4 +31,5 @@ export type {
   HandleFormEventParamType,
   HandleChangeEventParamType,
   ValidateFormParamType,
+  UpdateFormParamsType,
 };
