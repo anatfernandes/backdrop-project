@@ -21,7 +21,7 @@ async function postSignUp(data: PostSignUpParamsType) {
 }
 
 async function postSignIn(data: PostSignInParamsType) {
-  const user = (await repository.findUserByEmail(data.email)) as FullUser;
+  const user = (await repository.findUserByEmail(data.email)) as unknown as FullUser;
 
   if (!user || !bcrypt.compareSync(data.password, user.password)) {
     throw notFoundError("Invalid Email/Password!");
