@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import { InputType, Field } from "type-graphql";
 import { ArrayMaxSize, ArrayMinSize, Length, MaxLength, Min } from "class-validator";
-import { Post } from "../../../models";
+import { Post, User, Topic } from "../../../models";
 import * as listPostsType from "../../../services/post/types";
 
 type ListPostsResultType = Promise<Post[] | null>;
@@ -73,4 +73,4 @@ class ListPostsInput {
   where: ListPostsWhereInput;
 }
 
-export { Post, ListPostsResultType, ListPostsInput, CreatePostInput };
+export { Post, User, Topic, ListPostsResultType, ListPostsInput, CreatePostInput };
