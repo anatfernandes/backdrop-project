@@ -15,6 +15,12 @@ async function findUserById(id: string) {
   return result;
 }
 
+async function findUsersById(ids: string[]) {
+  const query = fql`Users.where(user => ${ids}.includes(user.id));`;
+  const result = (await handleQuery(query)) as FindUserResultType;
+  return result?.data;
+}
+
 async function findUserByEmail(email: string) {
   const query = fql`Users.byEmail(${email});`;
   const result = (await handleQuery(query)) as FindUserResultType;
@@ -65,6 +71,7 @@ export {
   findUserById,
   findUserByEmail,
   findUserByUsername,
+  findUsersById,
   findUsersByNameOrUsername,
   findFollowing,
   findSessionByUser,
