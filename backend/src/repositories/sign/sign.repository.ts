@@ -1,6 +1,6 @@
 import { fql } from "fauna";
 import { handleQuery } from "../../database";
-import { Session } from "../../models";
+import { Session, User } from "../../models";
 import {
   CreateUserParamsType,
   CreateSessionParamsType,
@@ -8,6 +8,12 @@ import {
   FindUserResultType,
   QueryType,
 } from "./types";
+
+async function findUserById(id: string) {
+  const query = fql`Users.byId(${id});`;
+  const result = (await handleQuery(query)) as User;
+  return result;
+}
 
 async function findUserByEmail(email: string) {
   const query = fql`Users.byEmail(${email});`;
@@ -25,6 +31,12 @@ async function findUsersByNameOrUsername(name: string) {
   const query = fql`Users.where(u => u.name.toLowerCase().includes(${name})
     || u.username.toLowerCase().includes(${name}));`;
 
+  const result = (await handleQuery(query)) as FindUserResultType;
+  return result?.data;
+}
+
+async function findFollowing(follower: string) {
+  const query = fql`Follows.where(.follower.id == ${follower});`;
   const result = (await handleQuery(query)) as FindUserResultType;
   return result?.data;
 }
@@ -50,9 +62,11 @@ async function createSession(data: CreateSessionParamsType) {
 }
 
 export {
+  findUserById,
   findUserByEmail,
   findUserByUsername,
   findUsersByNameOrUsername,
+  findFollowing,
   findSessionByUser,
   createUser,
   createSession,
