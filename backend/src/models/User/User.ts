@@ -33,7 +33,7 @@ class User {
 
   @Field(() => [Topic], { nullable: "items", defaultValue: [] })
   @ArrayMaxSize(3)
-  topics: string[];
+  topics: Topic[];
 
   @Field({ defaultValue: true })
   active: boolean;
