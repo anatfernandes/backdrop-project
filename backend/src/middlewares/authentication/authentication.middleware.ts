@@ -53,6 +53,8 @@ class AuthenticationChecker implements AuthCheckerInterface<ContextType> {
       const session = await getSessionId(user);
       if (!session) return false;
 
+      context.user = user;
+
       return true;
     } catch (error) {
       return false;
