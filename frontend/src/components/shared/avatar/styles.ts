@@ -4,6 +4,8 @@ import { WrapperPropsType } from "./types";
 const Wrapper = styled.article<WrapperPropsType>`
   height: ${(props) => props.$size};
   width: ${(props) => props.$size};
+  min-height: ${(props) => props.$size};
+  min-width: ${(props) => props.$size};
   border-radius: 50px;
   margin: 0;
   background-size: cover;
