@@ -91,6 +91,18 @@
         "Success": "Post saved successfully!",
         "Error": "Unable to save post"
       }
+    },
+    "List": {
+      "Error": "An error occurred while searching for posts!",
+      "NoData": "There are no posts here yet! How about exploring the posts or creating your own ;)?"
+    },
+    "Card": {
+      "Options": "More",
+      "Like": "Like post",
+      "Unlike": "Dislike post",
+      "Comment": "Comments",
+      "Saved": "Save post",
+      "Unsaved": "Remove saved post"
     }
   },
   "Topic": {
@@ -136,6 +148,7 @@
     "NoData": "There is no data to show for now :/",
     "Cancel": "Cancel",
     "Delete": "Delete",
+    "Edit": "Edit",
     "Attention": "Attention",
     "Search": "Search",
     "NotLoggedUserError": "You must be logged in to proceed!",

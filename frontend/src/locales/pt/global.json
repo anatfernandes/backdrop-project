@@ -91,6 +91,18 @@
         "Success": "Postagem salva com sucesso!",
         "Error": "Não foi possível salvar a postagem"
       }
+    },
+    "List": {
+      "Error": "Ocorreu um erro ao buscar as postagens!",
+      "NoData": "Não há postagens por aqui ainda! Que tal explorar os posts ou criar o seu próprio ;)?"
+    },
+    "Card": {
+      "Options": "Mais",
+      "Like": "Curtir postagem",
+      "Unlike": "Descurtir postagem",
+      "Comment": "Comentários",
+      "Saved": "Salvar postagem",
+      "Unsaved": "Remover postagem de salvos"
     }
   },
   "Topic": {
@@ -136,6 +148,7 @@
     "NoData": "Não há informações para mostrar por agora :/",
     "Cancel": "Cancelar",
     "Delete": "Deletar",
+    "Edit": "Editar",
     "Attention": "Atenção",
     "Search": "Buscar",
     "NotLoggedUserError": "É preciso estar logado para prosseguir!",
