@@ -22,7 +22,14 @@ type ListsPostsParamsType = {
   where: ListsPostsWhereParamsType;
 };
 
+type FindUserPostParamsType = {
+  user: string;
+  post: string;
+};
+
 type ListPostsResultType = { data: Post[] | null };
+
+type FindUserPostResultType = { data: Post[] | null };
 
 type CreatePostParamsType = Omit<Post, "id">;
 
@@ -44,6 +51,8 @@ type DeleteSavedPostParamsType = {
 type QueryType = QueryValue | Query;
 
 export type {
+  FindUserPostParamsType,
+  FindUserPostResultType,
   ListPostsSortByType,
   ListPostsSortDirectionType,
   ListsPostsSortParamsType,

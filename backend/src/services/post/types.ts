@@ -28,6 +28,11 @@ type ListsPostsParamsType = {
   where: listPostsType.ListsPostsWhereParamsType;
 };
 
+type DeletePostParamsType = {
+  user: string;
+  post: string;
+};
+
 export type {
   ListPostsContextType,
   ListsPostsParamsType,
@@ -36,4 +41,5 @@ export type {
   ToggleSavePostParamsType,
   ListPostsSortByType,
   ListPostsSortDirectionType,
+  DeletePostParamsType,
 };

@@ -1,6 +1,7 @@
-import { Resolver, Mutation, Arg, Authorized } from "type-graphql";
+import { Resolver, Mutation, Arg, Authorized, Ctx } from "type-graphql";
+import { ContextType } from "../../../middlewares/authentication/types";
 import * as service from "../../../services/post";
-import { CreatePostInput, ReactPostInput, SavePostInput } from "./types";
+import { CreatePostInput, DeletePostInput, ReactPostInput, SavePostInput } from "./types";
 
 @Resolver()
 class PostMutationsResolver {
@@ -22,6 +23,16 @@ class PostMutationsResolver {
   @Mutation(() => Boolean)
   async savePost(@Arg("data") data: SavePostInput): Promise<boolean> {
     await service.toggleSavePost(data);
+    return true;
+  }
+
+  @Authorized()
+  @Mutation(() => Boolean)
+  async deletePost(
+    @Arg("data") data: DeletePostInput,
+    @Ctx() context: ContextType,
+  ): Promise<boolean> {
+    await service.deletePost({ ...data, user: context.user ?? "" });
     return true;
   }
 }

@@ -6,6 +6,8 @@ import {
   CreatePostParamsType,
   DeletePostReactionParamsType,
   DeleteSavedPostParamsType,
+  FindUserPostParamsType,
+  FindUserPostResultType,
   ListPostsResultType,
   ListsPostsParamsType,
   QueryType,
@@ -19,6 +21,12 @@ async function updatePostTopics(id: string, topics: string[]) {
       .toArray().map(post => post.update({ topics: post.topics.append(Topics.byId(${topic})) }));`;
     await handleQuery(updatePostTopicQuery);
   }
+}
+
+async function findUserPost(data: FindUserPostParamsType) {
+  const query = fql`Posts.where(.id == ${data.post} && .owner.id == ${data.user});`;
+  const result = (await handleQuery(query)) as FindUserPostResultType;
+  return result?.data?.[0];
 }
 
 async function listPosts(data: ListsPostsParamsType) {
@@ -50,6 +58,11 @@ async function savePost(data: SavePostParamsType) {
   return handleQuery(savePostQuery);
 }
 
+async function deletePost(post: string) {
+  const query = fql`Posts.byId(${post})!.delete()`;
+  return handleQuery(query);
+}
+
 async function deletePostReaction(data: DeletePostReactionParamsType) {
   const likePostQuery = fql`Reactions.where(
       .user.id == ${data.user}
@@ -70,10 +83,12 @@ async function deleteSavedPost(data: DeleteSavedPostParamsType) {
 }
 
 export {
+  findUserPost,
   listPosts,
   createPost,
   reactPost,
   savePost,
+  deletePost,
   deletePostReaction,
   deleteSavedPost,
 };

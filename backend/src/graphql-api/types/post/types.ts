@@ -58,6 +58,12 @@ class SavePostInput {
 }
 
 @InputType()
+class DeletePostInput {
+  @Field()
+  post: string;
+}
+
+@InputType()
 class ListPostsSortInput {
   @Field({ defaultValue: "date" })
   by: listPostsType.ListPostsSortByType;
@@ -109,4 +115,5 @@ export {
   CreatePostInput,
   ReactPostInput,
   SavePostInput,
+  DeletePostInput,
 };

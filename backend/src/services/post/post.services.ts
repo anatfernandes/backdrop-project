@@ -8,6 +8,7 @@ import {
 } from "../../helpers/create-default-entities";
 import {
   CreatePostParamsType,
+  DeletePostParamsType,
   ListsPostsParamsType,
   TogglePostReactionParamsType,
   ToggleSavePostParamsType,
@@ -62,4 +63,12 @@ async function toggleSavePost(data: ToggleSavePostParamsType) {
   return repository.deleteSavedPost(newSaved);
 }
 
-export { listPosts, createPost, togglePostReaction, toggleSavePost };
+async function deletePost(data: DeletePostParamsType) {
+  const post = await repository.findUserPost(data);
+
+  if (!post) throw new Error("Post not found!");
+
+  return repository.deletePost(data.post);
+}
+
+export { listPosts, createPost, togglePostReaction, toggleSavePost, deletePost };
