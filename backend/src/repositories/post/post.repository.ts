@@ -5,10 +5,12 @@ import { getListPostsQuery } from "./helpers";
 import {
   CreatePostParamsType,
   DeletePostReactionParamsType,
+  DeleteSavedPostParamsType,
   ListPostsResultType,
   ListsPostsParamsType,
   QueryType,
   ReactPostParamsType,
+  SavePostParamsType,
 } from "./types";
 
 async function updatePostTopics(id: string, topics: string[]) {
@@ -42,6 +44,12 @@ async function reactPost(data: ReactPostParamsType) {
   return handleQuery(likePostQuery);
 }
 
+async function savePost(data: SavePostParamsType) {
+  const savePostQuery = fql`Saved.create(${data})
+    .update({ user: Users.byId(${data.user}), post: Posts.byId(${data.post}) });`;
+  return handleQuery(savePostQuery);
+}
+
 async function deletePostReaction(data: DeletePostReactionParamsType) {
   const likePostQuery = fql`Reactions.where(
       .user.id == ${data.user}
@@ -52,4 +60,20 @@ async function deletePostReaction(data: DeletePostReactionParamsType) {
   return handleQuery(likePostQuery);
 }
 
-export { listPosts, createPost, reactPost, deletePostReaction };
+async function deleteSavedPost(data: DeleteSavedPostParamsType) {
+  const deleteSavedPostQuery = fql`Saved.where(
+      .user.id == ${data.user}
+      && .post.id == ${data.post}
+    ).forEach(saved => saved.delete());`;
+
+  return handleQuery(deleteSavedPostQuery);
+}
+
+export {
+  listPosts,
+  createPost,
+  reactPost,
+  savePost,
+  deletePostReaction,
+  deleteSavedPost,
+};

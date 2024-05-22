@@ -4,11 +4,13 @@ import * as signRepository from "../../repositories/sign/sign.repository";
 import {
   createDefaultPost,
   createDefaultReaction,
+  createDefaultSaved,
 } from "../../helpers/create-default-entities";
 import {
   CreatePostParamsType,
   ListsPostsParamsType,
   TogglePostReactionParamsType,
+  ToggleSavePostParamsType,
 } from "./types";
 
 async function listPosts(data: ListsPostsParamsType) {
@@ -51,4 +53,13 @@ async function togglePostReaction(data: TogglePostReactionParamsType) {
   return repository.deletePostReaction(newReaction);
 }
 
-export { listPosts, createPost, togglePostReaction };
+async function toggleSavePost(data: ToggleSavePostParamsType) {
+  const { value, ...saved } = data;
+  const newSaved = createDefaultSaved(saved);
+
+  if (value) return repository.savePost(newSaved);
+
+  return repository.deleteSavedPost(newSaved);
+}
+
+export { listPosts, createPost, togglePostReaction, toggleSavePost };

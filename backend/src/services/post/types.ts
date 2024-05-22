@@ -1,4 +1,4 @@
-import { Post, Reaction } from "../../models";
+import { Post, Reaction, Saved } from "../../models";
 import * as listPostsType from "../../repositories/post/types";
 
 type ListPostsSortByType = listPostsType.ListPostsSortByType;
@@ -12,6 +12,10 @@ type CreatePostParamsType = Pick<
 >;
 
 type TogglePostReactionParamsType = Pick<Reaction, "user" | "post" | "type"> & {
+  value: boolean;
+};
+
+type ToggleSavePostParamsType = Pick<Saved, "user" | "post"> & {
   value: boolean;
 };
 
@@ -29,6 +33,7 @@ export type {
   ListsPostsParamsType,
   CreatePostParamsType,
   TogglePostReactionParamsType,
+  ToggleSavePostParamsType,
   ListPostsSortByType,
   ListPostsSortDirectionType,
 };
