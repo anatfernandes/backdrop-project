@@ -29,6 +29,10 @@ type PostType = {
   links: [string];
   locale: string;
   owner: UserType;
+  reactions: number;
+  comments: number;
+  saved: boolean;
+  liked: boolean;
   active: boolean;
   createdAt: string;
   updatedAt: string;
