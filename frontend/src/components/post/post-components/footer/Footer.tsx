@@ -1,5 +1,8 @@
 import { useRef, useState } from "react";
-import { useLikePost } from "../../../../hooks/requests/graphql/mutations";
+import {
+  useLikePost,
+  useToggleSavePost,
+} from "../../../../hooks/requests/graphql/mutations";
 import { useLocale } from "../../../../hooks";
 import { Icon } from "../../../shared";
 import { Wrapper } from "./styles";
@@ -7,7 +10,10 @@ import { FooterParamsType } from "./types";
 
 function Footer({ post, ...other }: Readonly<FooterParamsType>) {
   const { t } = useLocale();
+
   const { handleLikePost } = useLikePost({ onError: updateLike });
+  const { handleToggleSavePost } = useToggleSavePost({ onError: updateSaved });
+
   const { current: iconsSize } = useRef(30);
   const [reactions, setReactions] = useState(post.reactions);
   const [liked, setLiked] = useState(post.liked);
@@ -20,6 +26,10 @@ function Footer({ post, ...other }: Readonly<FooterParamsType>) {
     setReactions((prev) => (isLiked ? prev - 1 : prev + 1));
   }
 
+  function updateSaved() {
+    setSaved((prev) => !prev);
+  }
+
   function toggleLike(event: React.KeyboardEvent<HTMLButtonElement>) {
     if (event.type !== "click" && event.key !== "Enter") return;
 
@@ -29,7 +39,9 @@ function Footer({ post, ...other }: Readonly<FooterParamsType>) {
 
   function toggleSaved(event: React.KeyboardEvent<HTMLButtonElement>) {
     if (event.type !== "click" && event.key !== "Enter") return;
-    setSaved((prev) => !prev);
+
+    handleToggleSavePost({ value: !saved, post: post.id });
+    updateSaved();
   }
 
   function compactNumber(number: number) {
