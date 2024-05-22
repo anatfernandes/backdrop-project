@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import { InputType, Field } from "type-graphql";
 import { ArrayMaxSize, ArrayMinSize, Length, MaxLength, Min } from "class-validator";
-import { Post, User, Topic } from "../../../models";
+import { Post, User, Topic, ReactionType } from "../../../models";
 import * as listPostsType from "../../../services/post/types";
 
 type ListPostsResultType = Promise<Post[] | null>;
@@ -28,6 +28,21 @@ class CreatePostInput {
   @Field(() => [String], { nullable: "items", defaultValue: [] })
   @ArrayMaxSize(3)
   links: string[];
+}
+
+@InputType()
+class ReactPostInput {
+  @Field()
+  user: string;
+
+  @Field()
+  post: string;
+
+  @Field()
+  type: ReactionType;
+
+  @Field()
+  value: boolean;
 }
 
 @InputType()
@@ -73,4 +88,12 @@ class ListPostsInput {
   where: ListPostsWhereInput;
 }
 
-export { Post, User, Topic, ListPostsResultType, ListPostsInput, CreatePostInput };
+export {
+  Post,
+  User,
+  Topic,
+  ListPostsResultType,
+  ListPostsInput,
+  CreatePostInput,
+  ReactPostInput,
+};

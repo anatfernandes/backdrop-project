@@ -1,4 +1,4 @@
-import { Post } from "../../models";
+import { Post, Reaction } from "../../models";
 import * as listPostsType from "../../repositories/post/types";
 
 type ListPostsSortByType = listPostsType.ListPostsSortByType;
@@ -10,6 +10,10 @@ type CreatePostParamsType = Pick<
   Post,
   "owner" | "content" | "locale" | "topics" | "links"
 >;
+
+type TogglePostReactionParamsType = Pick<Reaction, "user" | "post" | "type"> & {
+  value: boolean;
+};
 
 type ListsPostsParamsType = {
   user: string;
@@ -24,6 +28,7 @@ export type {
   ListPostsContextType,
   ListsPostsParamsType,
   CreatePostParamsType,
+  TogglePostReactionParamsType,
   ListPostsSortByType,
   ListPostsSortDirectionType,
 };

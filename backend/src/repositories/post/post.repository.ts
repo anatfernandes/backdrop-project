@@ -4,9 +4,11 @@ import { Post } from "../../models";
 import { getListPostsQuery } from "./helpers";
 import {
   CreatePostParamsType,
+  DeletePostReactionParamsType,
   ListPostsResultType,
   ListsPostsParamsType,
   QueryType,
+  ReactPostParamsType,
 } from "./types";
 
 async function updatePostTopics(id: string, topics: string[]) {
@@ -34,4 +36,20 @@ async function createPost(data: CreatePostParamsType) {
   return updatePostTopics(createdPost.id, data.topics);
 }
 
-export { listPosts, createPost };
+async function reactPost(data: ReactPostParamsType) {
+  const likePostQuery = fql`Reactions.create(${data})
+    .update({ user: Users.byId(${data.user}), post: Posts.byId(${data.post}) });`;
+  return handleQuery(likePostQuery);
+}
+
+async function deletePostReaction(data: DeletePostReactionParamsType) {
+  const likePostQuery = fql`Reactions.where(
+      .user.id == ${data.user}
+      && .post.id == ${data.post}
+      && .type == ${data.type}
+    ).forEach(reaction => reaction.delete());`;
+
+  return handleQuery(likePostQuery);
+}
+
+export { listPosts, createPost, reactPost, deletePostReaction };

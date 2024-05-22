@@ -1,8 +1,15 @@
 import { uniqBy } from "lodash";
-import { createDefaultPost } from "../../helpers/create-default-entities";
 import * as repository from "../../repositories/post/post.repository";
 import * as signRepository from "../../repositories/sign/sign.repository";
-import { CreatePostParamsType, ListsPostsParamsType } from "./types";
+import {
+  createDefaultPost,
+  createDefaultReaction,
+} from "../../helpers/create-default-entities";
+import {
+  CreatePostParamsType,
+  ListsPostsParamsType,
+  TogglePostReactionParamsType,
+} from "./types";
 
 async function listPosts(data: ListsPostsParamsType) {
   const { page, user, ...params } = data;
@@ -35,4 +42,13 @@ async function createPost(data: CreatePostParamsType) {
   await repository.createPost(newPost);
 }
 
-export { listPosts, createPost };
+async function togglePostReaction(data: TogglePostReactionParamsType) {
+  const { value, ...reaction } = data;
+  const newReaction = createDefaultReaction(reaction);
+
+  if (value) return repository.reactPost(newReaction);
+
+  return repository.deletePostReaction(newReaction);
+}
+
+export { listPosts, createPost, togglePostReaction };

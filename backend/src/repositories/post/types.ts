@@ -1,5 +1,5 @@
 import { Query, QueryValue } from "fauna";
-import { Post } from "../../models";
+import { Post, Reaction, ReactionType } from "../../models";
 
 type ListPostsSortByType = "date" | "like";
 type ListPostsSortDirectionType = "asc" | "desc";
@@ -26,6 +26,14 @@ type ListPostsResultType = { data: Post[] | null };
 
 type CreatePostParamsType = Omit<Post, "id">;
 
+type ReactPostParamsType = Omit<Reaction, "id">;
+
+type DeletePostReactionParamsType = {
+  user: string;
+  post: string;
+  type: ReactionType;
+};
+
 type QueryType = QueryValue | Query;
 
 export type {
@@ -36,5 +44,7 @@ export type {
   ListsPostsParamsType,
   ListPostsResultType,
   CreatePostParamsType,
+  ReactPostParamsType,
+  DeletePostReactionParamsType,
   QueryType,
 };
