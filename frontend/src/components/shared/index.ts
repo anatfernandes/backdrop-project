@@ -7,3 +7,4 @@ export * from "./no-data";
 export * from "./avatar";
 export * from "./form";
 export * from "./modal";
+export * from "./popover";
