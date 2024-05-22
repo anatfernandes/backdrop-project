@@ -12,8 +12,8 @@ function createDefaultUser(user: Partial<FullUser> = {}) {
     topics: [],
     active: true,
     type: UserType.USER,
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
     ...user,
   };
 }

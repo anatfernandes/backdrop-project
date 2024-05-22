@@ -18,7 +18,7 @@ class Comment {
   message: string;
 
   @Field()
-  createdAt: Date;
+  createdAt: number;
 }
 
 export { Comment };

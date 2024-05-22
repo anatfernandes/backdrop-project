@@ -8,8 +8,8 @@ function createDefaultPost(post: Partial<Post> = {}) {
     topics: [],
     links: [],
     active: true,
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
     ...post,
   };
 }

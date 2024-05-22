@@ -16,10 +16,10 @@ class Reaction {
   type: ReactionType;
 
   @Field()
-  createdAt: Date;
+  createdAt: number;
 
   @Field()
-  updatedAt: Date;
+  updatedAt: number;
 }
 
 export { Reaction };

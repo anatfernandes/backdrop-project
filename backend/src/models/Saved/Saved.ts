@@ -13,7 +13,7 @@ class Saved {
   post: string;
 
   @Field()
-  createdAt: Date;
+  createdAt: number;
 }
 
 export { Saved };

@@ -10,7 +10,7 @@ class Topic {
   name: TopicName;
 
   @Field()
-  createdAt: Date;
+  createdAt: number;
 }
 
 export { Topic };

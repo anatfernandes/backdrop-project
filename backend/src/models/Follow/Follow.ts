@@ -13,10 +13,10 @@ class Follow {
   follower: string;
 
   @Field()
-  createdAt: Date;
+  createdAt: number;
 
   @Field()
-  updatedAt: Date;
+  updatedAt: number;
 }
 
 export { Follow };

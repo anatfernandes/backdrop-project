@@ -5,8 +5,8 @@ function createDefaultSession(session: Partial<Session> = {}) {
     user: "",
     token: "",
     active: true,
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
     ...session,
   };
 }
