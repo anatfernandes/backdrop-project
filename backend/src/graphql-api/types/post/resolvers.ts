@@ -3,6 +3,7 @@ import { ContextType } from "../../../middlewares/authentication/types";
 import {
   CommentByPostLoader,
   ReactionByPostLoader,
+  ReactionByUserLoader,
   SavedByUserLoader,
   TopicLoader,
   UserLoader,
@@ -41,6 +42,12 @@ class PostResolver {
   async saved(@Root() root: Post, @Ctx() context: ContextType): Promise<boolean> {
     const saved = await SavedByUserLoader(context.user ?? "", [root.id]);
     return !!saved?.length;
+  }
+
+  @FieldResolver(() => Boolean)
+  async liked(@Root() root: Post, @Ctx() context: ContextType): Promise<boolean> {
+    const liked = await ReactionByUserLoader(context.user ?? "", [root.id]);
+    return !!liked?.length;
   }
 }
 

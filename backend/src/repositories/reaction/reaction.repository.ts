@@ -8,4 +8,11 @@ async function findReactionsByPost(posts: ListReactionsByPostParamsType) {
   return result?.data;
 }
 
-export {  findReactionsByPost };
+async function findReactionsByUser(user: string, posts: ListReactionsByPostParamsType = []) {
+  const query = fql`Reactions.where(reaction => reaction.user.id == ${user}
+    && (${posts}.length == 0 || ${posts}.includes(reaction.post.id)));`;
+  const result = (await handleQuery(query)) as ListReactionsByPostResultType;
+  return result?.data;
+}
+
+export {  findReactionsByPost, findReactionsByUser };
