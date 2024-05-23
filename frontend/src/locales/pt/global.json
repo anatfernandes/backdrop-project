@@ -103,6 +103,12 @@
       "Comment": "Comentários",
       "Saved": "Salvar postagem",
       "Unsaved": "Remover postagem de salvos"
+    },
+    "Delete": {
+      "@Submit": {
+        "Success": "Postagem deletada com sucesso!",
+        "Error": "Não foi possível deletar a postagem!"
+      }
     }
   },
   "Topic": {

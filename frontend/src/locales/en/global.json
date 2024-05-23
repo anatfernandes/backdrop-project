@@ -103,6 +103,12 @@
       "Comment": "Comments",
       "Saved": "Save post",
       "Unsaved": "Remove saved post"
+    },
+    "Delete": {
+      "@Submit": {
+        "Success": "Post deleted successfully!",
+        "Error": "Unable to delete post!"
+      }
     }
   },
   "Topic": {
