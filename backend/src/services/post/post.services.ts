@@ -42,6 +42,10 @@ async function listPosts(data: ListsPostsParamsType) {
   return uniqBy((posts ?? []).concat(postsByTopics ?? []), "id");
 }
 
+async function findPostById(id: string) {
+  return repository.findPostById(id);
+}
+
 async function createPost(data: CreatePostParamsType) {
   const newPost = createDefaultPost(data);
   await repository.createPost(newPost);
@@ -91,6 +95,7 @@ async function deletePost(data: DeletePostParamsType) {
 
 export {
   listPosts,
+  findPostById,
   createPost,
   updatePost,
   togglePostReaction,

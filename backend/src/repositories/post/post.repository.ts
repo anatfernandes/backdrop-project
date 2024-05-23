@@ -30,6 +30,11 @@ async function findUserPost(data: FindUserPostParamsType) {
   return result?.data?.[0];
 }
 
+async function findPostById(id: string) {
+  const query = fql`Posts.byId(${id});`;
+  return handleQuery(query) as unknown as Post;
+}
+
 async function listPosts(data: ListsPostsParamsType) {
   const query = getListPostsQuery(data);
 
@@ -94,6 +99,7 @@ async function deleteSavedPost(data: DeleteSavedPostParamsType) {
 }
 
 export {
+  findPostById,
   findUserPost,
   listPosts,
   createPost,

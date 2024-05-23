@@ -4,6 +4,7 @@ import * as service from "../../../services/post";
 import {
   CreatePostInput,
   DeletePostInput,
+  Post,
   ReactPostInput,
   SavePostInput,
   UpdatePostInput,
@@ -16,6 +17,12 @@ class PostMutationsResolver {
   async createPost(@Arg("data") data: CreatePostInput): Promise<boolean> {
     await service.createPost(data);
     return true;
+  }
+
+  @Authorized()
+  @Mutation(() => Post)
+  async findPost(@Arg("id") id: string): Promise<Post> {
+    return service.findPostById(id);
   }
 
   @Authorized()
