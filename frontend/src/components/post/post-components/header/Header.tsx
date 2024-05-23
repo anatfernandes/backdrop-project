@@ -3,9 +3,14 @@ import { translateTopic } from "../../../../utils";
 import { useLocale, useDate, useUser } from "../../../../hooks";
 import { Avatar, Icon, Popover } from "../../../shared";
 import { Options, User, Wrapper } from "./styles";
-import { HeaderParamsType, OwnerType } from "./types";
+import {
+  HeaderParamsType,
+  OpenModalEventType,
+  OpenModalParamsType,
+  OwnerType,
+} from "./types";
 
-function Header({ post, ...other }: Readonly<HeaderParamsType>) {
+function Header({ post, handleOpenModal, ...other }: Readonly<HeaderParamsType>) {
   const { t } = useLocale();
   const { user } = useUser();
   const { formatDistanceStrict, dateOptions } = useDate();
@@ -16,6 +21,12 @@ function Header({ post, ...other }: Readonly<HeaderParamsType>) {
 
   function isOwner(owner: OwnerType) {
     return owner.id === user.id;
+  }
+
+  function openModal(e: OpenModalParamsType) {
+    const event = e as OpenModalEventType;
+    if (event.type !== "click" && event.key !== "Enter") return;
+    handleOpenModal();
   }
 
   return (
@@ -54,7 +65,9 @@ function Header({ post, ...other }: Readonly<HeaderParamsType>) {
 
             <ul className="popover__content">
               <li tabIndex={0}>{t("Common.Edit")}</li>
-              <li tabIndex={0}>{t("Common.Delete")}</li>
+              <li tabIndex={0} onClick={openModal} onKeyUp={openModal}>
+                {t("Common.Delete")}
+              </li>
             </ul>
           </Popover>
         </Options>
