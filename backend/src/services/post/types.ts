@@ -11,6 +11,11 @@ type CreatePostParamsType = Pick<
   "owner" | "content" | "locale" | "topics" | "links"
 >;
 
+type EditPostParamsType = Partial<Post> & {
+  id: string;
+  user: string;
+};
+
 type TogglePostReactionParamsType = Pick<Reaction, "user" | "post" | "type"> & {
   value: boolean;
 };
@@ -34,9 +39,11 @@ type DeletePostParamsType = {
 };
 
 export type {
+  Post,
   ListPostsContextType,
   ListsPostsParamsType,
   CreatePostParamsType,
+  EditPostParamsType,
   TogglePostReactionParamsType,
   ToggleSavePostParamsType,
   ListPostsSortByType,

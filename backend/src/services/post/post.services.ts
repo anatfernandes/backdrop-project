@@ -1,4 +1,4 @@
-import { uniqBy } from "lodash";
+import { omit, pick, uniqBy } from "lodash";
 import * as repository from "../../repositories/post/post.repository";
 import * as signRepository from "../../repositories/sign/sign.repository";
 import {
@@ -7,8 +7,10 @@ import {
   createDefaultSaved,
 } from "../../helpers/create-default-entities";
 import {
+  Post,
   CreatePostParamsType,
   DeletePostParamsType,
+  EditPostParamsType,
   ListsPostsParamsType,
   TogglePostReactionParamsType,
   ToggleSavePostParamsType,
@@ -45,6 +47,22 @@ async function createPost(data: CreatePostParamsType) {
   await repository.createPost(newPost);
 }
 
+async function updatePost(data: EditPostParamsType) {
+  const post = await repository.findUserPost({ user: data.user, post: data.id });
+
+  if (!post) throw new Error("Post not found!");
+
+  const newPost = pick(createDefaultPost({ ...omit(post, "updatedAt"), ...data }), [
+    "content",
+    "locale",
+    "topics",
+    "links",
+    "updatedAt",
+  ]) as Post;
+
+  await repository.updatePost(data.id, newPost);
+}
+
 async function togglePostReaction(data: TogglePostReactionParamsType) {
   const { value, ...reaction } = data;
   const newReaction = createDefaultReaction(reaction);
@@ -71,4 +89,11 @@ async function deletePost(data: DeletePostParamsType) {
   return repository.deletePost(data.post);
 }
 
-export { listPosts, createPost, togglePostReaction, toggleSavePost, deletePost };
+export {
+  listPosts,
+  createPost,
+  updatePost,
+  togglePostReaction,
+  toggleSavePost,
+  deletePost,
+};

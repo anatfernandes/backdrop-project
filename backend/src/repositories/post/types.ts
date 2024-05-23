@@ -33,6 +33,8 @@ type FindUserPostResultType = { data: Post[] | null };
 
 type CreatePostParamsType = Omit<Post, "id">;
 
+type UpdatePostParamsType = Omit<Post, "id" | "owner" | "createdAt">;
+
 type ReactPostParamsType = Omit<Reaction, "id">;
 
 type SavePostParamsType = Omit<Saved, "id">;
@@ -60,6 +62,7 @@ export type {
   ListsPostsParamsType,
   ListPostsResultType,
   CreatePostParamsType,
+  UpdatePostParamsType,
   ReactPostParamsType,
   SavePostParamsType,
   DeletePostReactionParamsType,

@@ -13,6 +13,7 @@ import {
   QueryType,
   ReactPostParamsType,
   SavePostParamsType,
+  UpdatePostParamsType,
 } from "./types";
 
 async function updatePostTopics(id: string, topics: string[]) {
@@ -44,6 +45,16 @@ async function createPost(data: CreatePostParamsType) {
   const createdPost = (await handleQuery(createPostQuery)) as unknown as Post;
 
   return updatePostTopics(createdPost.id, data.topics);
+}
+
+async function updatePost(id: string, data: UpdatePostParamsType) {
+  const query = fql`Posts.byId(${id})!
+    .update(${data})
+    .update({
+      topics: ${data.topics}.map(topic => Topics(topic)),
+    });`;
+
+  return handleQuery(query);
 }
 
 async function reactPost(data: ReactPostParamsType) {
@@ -86,6 +97,7 @@ export {
   findUserPost,
   listPosts,
   createPost,
+  updatePost,
   reactPost,
   savePost,
   deletePost,
