@@ -7,6 +7,7 @@ type FormType = {
 
 type FormOptionsType = {
   validations?: () => ValidateFormParamType;
+  beforeSubmit?: CallbackType;
 };
 
 type ValidationType = {

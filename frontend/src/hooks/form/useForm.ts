@@ -40,6 +40,8 @@ function useForm(defaultForm = {}, options: FormOptionsType = {}) {
   ) {
     event.preventDefault();
 
+    if(options.beforeSubmit) options.beforeSubmit();
+
     if (!options.validations) return callback(form);
 
     const validate = validateForm(options.validations());
