@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale } from "../../../../hooks";
 import { Form } from "../../../shared";
 import { LinksParamsType, LinksType } from "./types";
 
-function Links({ handleChange, ...other }: Readonly<LinksParamsType>) {
+function Links({ defaultLinks, handleChange, ...other }: Readonly<LinksParamsType>) {
   const { t } = useLocale();
   const [links, setLinks] = useState<LinksType>([]);
+
+  useEffect(() => {
+    const formattedLinks = (defaultLinks ?? []).map((value, index) => {
+      const id = !index ? "links" : `links-${index - 1}`;
+      return { id, value };
+    });
+
+    setLinks(formattedLinks);
+  }, [defaultLinks]);
 
   function getInpuValue(id: number = -1) {
     return links[id + 1]?.value ?? "";

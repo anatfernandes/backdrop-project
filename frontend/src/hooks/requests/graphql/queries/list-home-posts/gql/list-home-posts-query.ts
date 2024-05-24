@@ -13,6 +13,7 @@ const POSTS = gql`
       saved
       liked
       topics {
+        id
         name
       }
       owner {

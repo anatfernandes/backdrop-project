@@ -1,6 +1,13 @@
 import { PostType } from "../../../../../services/entities";
 import { MutationCommomParamsType } from "../type";
 
-type HandleSavePostParamsType = Pick<PostType, "content" | "topics" | "links" | "locale">;
+type SavePostParamsType = MutationCommomParamsType & { type?: "create" | "update" };
 
-export type { HandleSavePostParamsType, MutationCommomParamsType };
+type HandleSavePostParamsType = Pick<
+  PostType,
+  "content" | "topics" | "links" | "locale"
+> & {
+  id?: string;
+};
+
+export type { SavePostParamsType, HandleSavePostParamsType, MutationCommomParamsType };

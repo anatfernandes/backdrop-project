@@ -9,16 +9,28 @@ import {
   CreatePostDataType,
   HandleUpdateParamsType,
   HandleUpdateContentParamsType,
+  SavePostParamsType,
+  TopicType,
 } from "./types";
 
-function SavePost() {
+function SavePost({ defaultPost }: SavePostParamsType = {}) {
   const { t } = useLocale();
-  const { handleSavePost } = useSavePost({ onSuccess });
-  const { form, handleChange, updateForm, handleForm } = useForm({}, { validations });
+  const { handleSavePost } = useSavePost({
+    onSuccess,
+    type: isCreatePost() ? "create" : "update",
+  });
+  const { form, handleChange, updateForm, handleForm } = useForm(defaultPost, {
+    validations,
+    beforeSubmit,
+  });
   const [loading, setLoading] = useState(false);
-  const { current: maxContentLength } = useRef(2400);
   const [contentLength, setContentLength] = useState(0);
+  const { current: maxContentLength } = useRef(2400);
   const navigate = useNavigate();
+
+  function isCreatePost() {
+    return !Object.keys(defaultPost ?? {}).length;
+  }
 
   function validations() {
     return [
@@ -39,6 +51,16 @@ function SavePost() {
         message: t("Post.Save.Form.Validations.LinksLengthRequired"),
       },
     ];
+  }
+
+  function beforeSubmit() {
+    if (isCreatePost()) return;
+
+    form.id = defaultPost?.id;
+
+    form.topics = form.topics.map((topic: string | TopicType) =>
+      typeof topic === "string" ? topic : topic.id,
+    );
   }
 
   function handleUpdateContent(e: HandleUpdateContentParamsType) {
@@ -80,6 +102,7 @@ function SavePost() {
               placeholder={t("Post.Save.Form.Content.Placeholder")}
               maxLength={maxContentLength}
               onChange={handleUpdateContent}
+              defaultValue={defaultPost?.content}
               required
             ></textarea>
             <span id="remaining-characteres">
@@ -90,6 +113,7 @@ function SavePost() {
           <TopicsSelect
             placeholder={t("Post.Save.Form.Topics")}
             handleChange={handleUpdateTopics}
+            defaultOptions={defaultPost?.topics}
             required
           />
 
@@ -100,11 +124,12 @@ function SavePost() {
               type="text"
               name="locale"
               placeholder={t("Post.Save.Form.Locale")}
+              defaultValue={defaultPost?.locale}
               onChange={handleChange}
             ></input>
           </Form.InputSection>
 
-          <Links handleChange={handleUpdateLinks} />
+          <Links handleChange={handleUpdateLinks} defaultLinks={defaultPost?.links} />
 
           <Form.Button loading={loading} disabled={loading}>
             {t("Post.Save.Form.Post")}

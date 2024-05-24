@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { pick } from "lodash";
+import { Link, useNavigate } from "react-router-dom";
 import { translateTopic } from "../../../../utils";
 import { useLocale, useDate, useUser } from "../../../../hooks";
 import { Avatar, Icon, Popover } from "../../../shared";
@@ -14,6 +15,7 @@ function Header({ post, handleOpenModal, ...other }: Readonly<HeaderParamsType>)
   const { t } = useLocale();
   const { user } = useUser();
   const { formatDistanceStrict, dateOptions } = useDate();
+  const navigate = useNavigate();
 
   function getDate() {
     return formatDistanceStrict(post.createdAt, new Date(), dateOptions);
@@ -27,6 +29,16 @@ function Header({ post, handleOpenModal, ...other }: Readonly<HeaderParamsType>)
     const event = e as OpenModalEventType;
     if (event.type !== "click" && event.key !== "Enter") return;
     handleOpenModal();
+  }
+
+  function redirectToUpdatePost(e: OpenModalParamsType) {
+    const event = e as OpenModalEventType;
+
+    if (event.type !== "click" && event.key !== "Enter") return;
+
+    const postToUpdate = pick(post, ["id", "content", "locale", "topics", "links"]);
+
+    navigate("/post", { state: { post: postToUpdate } });
   }
 
   return (
@@ -64,7 +76,14 @@ function Header({ post, handleOpenModal, ...other }: Readonly<HeaderParamsType>)
             <Icon type="dots" title={t("Post.Card.Options")} size={20} tabIndex={0} />
 
             <ul className="popover__content">
-              <li tabIndex={0}>{t("Common.Edit")}</li>
+              <li
+                tabIndex={0}
+                onClick={redirectToUpdatePost}
+                onKeyUp={redirectToUpdatePost}
+              >
+                {t("Common.Edit")}
+              </li>
+
               <li tabIndex={0} onClick={openModal} onKeyUp={openModal}>
                 {t("Common.Delete")}
               </li>

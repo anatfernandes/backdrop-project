@@ -3,6 +3,7 @@ import { CallbackType } from "../../../../utils/protocols";
 
 type LinksParamsType = {
   handleChange: CallbackType;
+  defaultLinks?: string[];
   [key: string]: any;
 };
 
