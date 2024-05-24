@@ -12,6 +12,7 @@ const Wrapper = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
     font-size: 0.9rem;
     color: var(--dark-gray);
   }
