@@ -8,3 +8,4 @@ export * from "./avatar";
 export * from "./form";
 export * from "./modal";
 export * from "./popover";
+export * from "./list-more-button";

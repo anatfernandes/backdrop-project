@@ -7,7 +7,7 @@ import { POSTS } from "./gql/list-home-posts-query";
 function useListHomePosts({ page = 1, limit = 20 }: ListHomePostsParamsType = {}) {
   const toast = useToast();
   const { t } = useLocale();
-  const { data, loading, error } = useQuery<PostsQueryResult>(POSTS, {
+  const { data, loading, error, refetch } = useQuery<PostsQueryResult>(POSTS, {
     variables: {
       data: {
         context: "home",
@@ -21,10 +21,15 @@ function useListHomePosts({ page = 1, limit = 20 }: ListHomePostsParamsType = {}
     toast({ text: t("Post.List.Error"), type: "error" });
   }
 
+  function handleLoadMore(variables: ListHomePostsParamsType) {
+    refetch({ data: { ...variables, context: "home" } });
+  }
+
   return {
     posts: data?.posts ?? [],
     loading,
     error,
+    handleLoadMore,
   };
 }
 

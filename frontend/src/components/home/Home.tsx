@@ -1,18 +1,48 @@
+import { useState } from "react";
 import { useListHomePosts } from "../../hooks/requests/graphql/queries";
 import { useLocale } from "../../hooks";
-import { Loading, NoData } from "../shared";
+import { ListMoreButton, Loading, NoData } from "../shared";
 import { Post } from "../post";
 
 function Home() {
   const { t } = useLocale();
-  const { posts, loading } = useListHomePosts();
+  const { posts, loading, handleLoadMore } = useListHomePosts();
+  const [refetch, setRefetch] = useState(false);
+
+  function hasPosts() {
+    return !!posts.length;
+  }
+
+  function handleRefetchConfig() {
+    setRefetch((prev) => !prev);
+  }
 
   return (
     <>
+      {hasPosts() && (
+        <ListMoreButton
+          type="new"
+          loading={loading}
+          query={handleLoadMore}
+          handleRefetchConfig={handleRefetchConfig}
+        />
+      )}
+
+      {!loading && !hasPosts() && <NoData>{t("Post.List.NoData")}</NoData>}
+      {posts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
+
       {loading && <Loading />}
 
-      {!loading && !posts.length && <NoData>{t("Post.List.NoData")}</NoData>}
-      {!loading && posts.map((post) => <Post key={post.id} post={post} />)}
+      {hasPosts() && (
+        <ListMoreButton
+          type="more"
+          loading={loading}
+          refetch={refetch}
+          query={handleLoadMore}
+        />
+      )}
     </>
   );
 }
