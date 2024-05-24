@@ -1,6 +1,10 @@
 import { fql } from "fauna";
 import { handleQuery } from "../../database";
-import { ListCommentsByPostParamsType, ListCommentsByPostResultType } from "./types";
+import {
+  CreateCommentParamsType,
+  ListCommentsByPostParamsType,
+  ListCommentsByPostResultType,
+} from "./types";
 
 async function findCommentsByPost(posts: ListCommentsByPostParamsType) {
   const query = fql`Comments.where(comment => ${posts}.includes(comment.post.id));`;
@@ -8,4 +12,10 @@ async function findCommentsByPost(posts: ListCommentsByPostParamsType) {
   return result?.data;
 }
 
-export {  findCommentsByPost };
+async function createComment(data: CreateCommentParamsType) {
+  const query = fql`Comments.create(${data})
+    .update({ user: Users(${data.user}), post: Posts(${data.post}) });`;
+  return handleQuery(query);
+}
+
+export { findCommentsByPost, createComment };

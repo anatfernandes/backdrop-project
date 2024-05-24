@@ -2,6 +2,7 @@ import { Resolver, Mutation, Arg, Authorized, Ctx } from "type-graphql";
 import { ContextType } from "../../../middlewares/authentication/types";
 import * as service from "../../../services/post";
 import {
+  CommentPostInput,
   CreatePostInput,
   DeletePostInput,
   Post,
@@ -46,6 +47,16 @@ class PostMutationsResolver {
   @Mutation(() => Boolean)
   async savePost(@Arg("data") data: SavePostInput): Promise<boolean> {
     await service.toggleSavePost(data);
+    return true;
+  }
+
+  @Authorized()
+  @Mutation(() => Boolean)
+  async commentPost(
+    @Arg("data") data: CommentPostInput,
+    @Ctx() context: ContextType,
+  ): Promise<boolean> {
+    await service.createPostComment({ ...data, user: context.user ?? "" });
     return true;
   }
 

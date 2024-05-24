@@ -1,10 +1,12 @@
 import { omit, pick, uniqBy } from "lodash";
 import * as repository from "../../repositories/post/post.repository";
 import * as signRepository from "../../repositories/sign/sign.repository";
+import * as commentRepository from "../../repositories/comment/comment.repository";
 import {
   createDefaultPost,
   createDefaultReaction,
   createDefaultSaved,
+  createDefaultComment,
 } from "../../helpers/create-default-entities";
 import {
   Post,
@@ -14,6 +16,7 @@ import {
   ListsPostsParamsType,
   TogglePostReactionParamsType,
   ToggleSavePostParamsType,
+  CreateCommentParamsType,
 } from "./types";
 
 async function listPosts(data: ListsPostsParamsType) {
@@ -49,6 +52,11 @@ async function findPostById(id: string) {
 async function createPost(data: CreatePostParamsType) {
   const newPost = createDefaultPost(data);
   await repository.createPost(newPost);
+}
+
+async function createPostComment(data: CreateCommentParamsType) {
+  const newPost = createDefaultComment(data);
+  await commentRepository.createComment(newPost);
 }
 
 async function updatePost(data: EditPostParamsType) {
@@ -97,6 +105,7 @@ export {
   listPosts,
   findPostById,
   createPost,
+  createPostComment,
   updatePost,
   togglePostReaction,
   toggleSavePost,

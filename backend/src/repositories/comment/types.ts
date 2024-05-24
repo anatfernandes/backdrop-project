@@ -1,7 +1,13 @@
-import { Reaction } from "../../models";
+import { Comment, Reaction } from "../../models";
 
 type ListCommentsByPostParamsType = string[];
 
 type ListCommentsByPostResultType = { data: Reaction[] | null };
 
-export type { ListCommentsByPostResultType, ListCommentsByPostParamsType };
+type CreateCommentParamsType = Omit<Comment, "id">;
+
+export type {
+  ListCommentsByPostResultType,
+  ListCommentsByPostParamsType,
+  CreateCommentParamsType,
+};

@@ -1,4 +1,4 @@
-import { Post, Reaction, Saved } from "../../models";
+import { Comment, Post, Reaction, Saved } from "../../models";
 import * as listPostsType from "../../repositories/post/types";
 
 type ListPostsSortByType = listPostsType.ListPostsSortByType;
@@ -10,6 +10,8 @@ type CreatePostParamsType = Pick<
   Post,
   "owner" | "content" | "locale" | "topics" | "links"
 >;
+
+type CreateCommentParamsType = Pick<Comment, "post" | "user" | "message">;
 
 type EditPostParamsType = Partial<Post> & {
   id: string;
@@ -43,6 +45,7 @@ export type {
   ListPostsContextType,
   ListsPostsParamsType,
   CreatePostParamsType,
+  CreateCommentParamsType,
   EditPostParamsType,
   TogglePostReactionParamsType,
   ToggleSavePostParamsType,

@@ -1,6 +1,13 @@
 /* eslint-disable indent */
 import { InputType, Field } from "type-graphql";
-import { ArrayMaxSize, ArrayMinSize, Length, MaxLength, Min } from "class-validator";
+import {
+  ArrayMaxSize,
+  ArrayMinSize,
+  Length,
+  MaxLength,
+  Min,
+  MinLength,
+} from "class-validator";
 import { Post, User, Topic, ReactionType } from "../../../models";
 import * as listPostsType from "../../../services/post/types";
 
@@ -81,6 +88,17 @@ class SavePostInput {
 }
 
 @InputType()
+class CommentPostInput {
+  @Field()
+  @MinLength(1)
+  message: string;
+
+  @Field()
+  @MinLength(1)
+  post: string;
+}
+
+@InputType()
 class DeletePostInput {
   @Field()
   post: string;
@@ -139,5 +157,6 @@ export {
   UpdatePostInput,
   ReactPostInput,
   SavePostInput,
+  CommentPostInput,
   DeletePostInput,
 };
