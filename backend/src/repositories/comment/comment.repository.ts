@@ -7,7 +7,7 @@ import {
 } from "./types";
 
 async function findCommentsByPost(posts: ListCommentsByPostParamsType) {
-  const query = fql`Comments.where(comment => ${posts}.includes(comment.post.id));`;
+  const query = fql`Comments.sortByDateDesc().where(comment => ${posts}.includes(comment.post.id));`;
   const result = (await handleQuery(query)) as ListCommentsByPostResultType;
   return result?.data;
 }
