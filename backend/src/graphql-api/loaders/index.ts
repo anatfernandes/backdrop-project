@@ -4,3 +4,4 @@ export * from "./ReactionByPostLoader";
 export * from "./CommentByPostLoader";
 export * from "./SavedByUserLoader";
 export * from "./ReactionByUserLoader";
+export * from "./PostLoader";

@@ -2,6 +2,7 @@ import { NonEmptyArray } from "type-graphql";
 import { HealthQueriesResolver } from "./types/health";
 import { TopicQueriesResolver } from "./types/topic";
 import { PostMutationsResolver, PostQueriesResolver, PostResolver } from "./types/post";
+import { CommentQueriesResolver, CommentResolver } from "./types/comment";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const resolvers: NonEmptyArray<any> = [
@@ -10,6 +11,8 @@ const resolvers: NonEmptyArray<any> = [
   PostResolver,
   PostQueriesResolver,
   PostMutationsResolver,
+  CommentQueriesResolver,
+  CommentResolver,
 ];
 
 export { resolvers };
