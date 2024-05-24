@@ -140,7 +140,7 @@ class ListPostsInput {
   @Min(1)
   page: number;
 
-  @Field({ defaultValue: { by: "date", direction: "asc" } })
+  @Field({ defaultValue: { by: "date", direction: "desc" } })
   sort: ListPostsSortInput;
 
   @Field({ defaultValue: { context: "", locale: "", users: [], topics: [] } })

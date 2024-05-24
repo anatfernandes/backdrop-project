@@ -21,8 +21,8 @@ import {
 
 async function listPosts(data: ListsPostsParamsType) {
   const { page, user, ...params } = data;
-  const offset = (page - 1) * data.limit;
-  const newData = { ...params, offset };
+  const limit = page * data.limit;
+  const newData = { ...params, offset: 0, limit };
 
   if (data.context !== "home") return repository.listPosts(newData);
 
