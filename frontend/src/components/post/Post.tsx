@@ -1,16 +1,22 @@
+import { useState } from "react";
 import { useDeletePost } from "../../hooks/requests/graphql/mutations";
 import { useModal } from "../../hooks";
 import { Modal } from "../shared";
-import { Footer, Header, Links } from "./post-components";
+import { Comments, Footer, Header, Links } from "./post-components";
 import { Wrapper } from "./styles";
 import { PostParamsType } from "./types";
 
 function Post({ post }: Readonly<PostParamsType>) {
   const { handleDeletePost } = useDeletePost();
   const { modalConfig, handleCloseModal, handleOpenModal } = useModal();
+  const [showComments, setShowComments] = useState(false);
 
   function handleConfirmModal() {
     handleDeletePost(post.id);
+  }
+
+  function handleShowComments() {
+    setShowComments((prev) => !prev);
   }
 
   return (
@@ -31,7 +37,9 @@ function Post({ post }: Readonly<PostParamsType>) {
 
       <Wrapper.Divider />
 
-      <Footer post={post} />
+      <Footer post={post} handleShowComments={handleShowComments} />
+
+      {showComments && <Comments post={post.id} />}
     </Wrapper>
   );
 }

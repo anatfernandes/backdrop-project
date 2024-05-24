@@ -8,7 +8,7 @@ import { Icon } from "../../../shared";
 import { Wrapper } from "./styles";
 import { FooterParamsType } from "./types";
 
-function Footer({ post, ...other }: Readonly<FooterParamsType>) {
+function Footer({ post, handleShowComments, ...other }: Readonly<FooterParamsType>) {
   const { t } = useLocale();
 
   const { handleLikePost } = useLikePost({ onError: updateLike });
@@ -42,6 +42,11 @@ function Footer({ post, ...other }: Readonly<FooterParamsType>) {
 
     handleToggleSavePost({ value: !saved, post: post.id });
     updateSaved();
+  }
+
+  function toggleShowComments(event: React.KeyboardEvent<HTMLButtonElement>) {
+    if (event.type !== "click" && event.key !== "Enter") return;
+    handleShowComments();
   }
 
   function compactNumber(number: number) {
@@ -80,12 +85,13 @@ function Footer({ post, ...other }: Readonly<FooterParamsType>) {
         <span id="quantity">{compactNumber(reactions)}</span>
       </button>
 
-      <button aria-label={t("Post.Card.Comment")}>
+      <button aria-label={t("Post.Card.Comment")} onKeyUp={toggleShowComments}>
         <Icon
           type="comment"
           title={t("Post.Card.Comment")}
           color="var(--secondary)"
           size={iconsSize}
+          onClick={toggleShowComments}
           aria-hidden
         />
 

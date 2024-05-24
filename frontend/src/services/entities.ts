@@ -38,6 +38,15 @@ type PostType = {
   updatedAt: string;
 };
 
+type CommentType = {
+  id: string;
+  user: UserType;
+  post: PostType;
+  message: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 enum UserTypesType {
   ADMIN = "ADMIN",
   USER = "USER",
@@ -69,4 +78,12 @@ enum TopicName {
   WOMEN_EMPOWERMENT = "WOMEN_EMPOWERMENT",
 }
 
-export type { FullUserType, UserType, UserTypesType, TopicType, TopicName, PostType };
+export type {
+  FullUserType,
+  UserType,
+  UserTypesType,
+  TopicType,
+  TopicName,
+  PostType,
+  CommentType,
+};
