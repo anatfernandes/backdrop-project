@@ -23,7 +23,7 @@ function Comment({ comment, ...other }: Readonly<CommentParamsType>) {
       <Content>
         <div id="details">
           <div id="user">
-            <Link to={`/users/${comment.user.username}`}>
+            <Link to={`/users/${comment.user.id}`}>
               <h2>{comment.user.name}</h2>
             </Link>
 

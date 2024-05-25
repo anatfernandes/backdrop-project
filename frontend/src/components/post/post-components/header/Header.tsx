@@ -47,7 +47,7 @@ function Header({ post, handleOpenModal, ...other }: Readonly<HeaderParamsType>)
         <Avatar user={post.owner} size="normal" />
 
         <User>
-          <Link to={`/users/${post.owner.username}`}>
+          <Link to={`/users/${post.owner.id}`}>
             <h2>{post.owner.name}</h2>
           </Link>
 

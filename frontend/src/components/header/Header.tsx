@@ -34,7 +34,7 @@ function Header() {
             <Icon type="notification" title={t("Pages.Notifications")} />
           </Link>
 
-          <Link to={`/user/${user.username}`} title={t("Pages.Profile")}>
+          <Link to={`/user/${user.id}`} title={t("Pages.Profile")}>
             <Icon type="person" title={t("Pages.Profile")} />
           </Link>
 
