@@ -8,4 +8,14 @@ type HandleChangeSortPostsParamsType = {
   direction: "asc" | "desc";
 };
 
-export type { ListPostsParamsType, HandleChangeSortPostsParamsType };
+type HandleChangeFilterPostsParamsType = {
+  locale: string;
+  users: string[];
+  topics: string[];
+};
+
+export type {
+  ListPostsParamsType,
+  HandleChangeSortPostsParamsType,
+  HandleChangeFilterPostsParamsType,
+};
