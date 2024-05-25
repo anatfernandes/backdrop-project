@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 42px;
     right: 0;
+    z-index: 4;
     background-color: var(--white);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     font-size: 0.9rem;
@@ -24,7 +25,6 @@ const Wrapper = styled.div`
 
   &:hover .popover__content,
   &:focus-within .popover__content {
-    z-index: 4;
     opacity: 1;
     visibility: visible;
     transform: translate(0, -20px);
