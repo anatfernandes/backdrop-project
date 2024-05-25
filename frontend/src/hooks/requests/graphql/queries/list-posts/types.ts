@@ -3,4 +3,9 @@ type ListPostsParamsType = {
   limit?: number;
 };
 
-export type { ListPostsParamsType };
+type HandleChangeSortPostsParamsType = {
+  by: "date" | "like";
+  direction: "asc" | "desc";
+};
+
+export type { ListPostsParamsType, HandleChangeSortPostsParamsType };

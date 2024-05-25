@@ -3,10 +3,11 @@ import { useListPosts } from "../../hooks/requests/graphql/queries";
 import { useLocale } from "../../hooks";
 import { ListMoreButton, Loading, NoData } from "../shared";
 import { Post } from "../post";
+import { SortPosts } from "./explore-components";
 
 function Explore() {
   const { t } = useLocale();
-  const { posts, loading, handleRefetchPosts } = useListPosts();
+  const { posts, loading, handleRefetchPosts, handleChangeSortPosts } = useListPosts();
   const [refetch, setRefetch] = useState(false);
 
   function hasPosts() {
@@ -20,12 +21,16 @@ function Explore() {
   return (
     <>
       {hasPosts() && (
-        <ListMoreButton
-          type="new"
-          loading={loading}
-          query={handleRefetchPosts}
-          handleRefetchConfig={handleRefetchConfig}
-        />
+        <>
+          <SortPosts handleChangeSortPosts={handleChangeSortPosts} />
+
+          <ListMoreButton
+            type="new"
+            loading={loading}
+            query={handleRefetchPosts}
+            handleRefetchConfig={handleRefetchConfig}
+          />
+        </>
       )}
 
       {!loading && !hasPosts() && <NoData>{t("Explore.NoData")}</NoData>}

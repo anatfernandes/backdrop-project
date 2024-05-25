@@ -29,4 +29,4 @@ type IconParamsType = {
   type: IconType;
 };
 
-export type { IconParamsType };
+export type { IconParamsType, IconType };

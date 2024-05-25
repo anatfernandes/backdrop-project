@@ -2,13 +2,13 @@ import { useQuery } from "@apollo/client";
 import { useLocale, useToast } from "../../../../index";
 import { getGraphqlError } from "../../../../utils";
 import { PostsQueryResult } from "./gql/types";
-import { ListPostsParamsType } from "./types";
+import { HandleChangeSortPostsParamsType, ListPostsParamsType } from "./types";
 import { POSTS } from "./gql/list-posts-query";
 
 function useListPosts({ page = 1, limit = 20 }: ListPostsParamsType = {}) {
   const toast = useToast();
   const { t } = useLocale();
-  const { data, loading, error, refetch } = useQuery<PostsQueryResult>(POSTS, {
+  const { data, loading, error, variables, refetch } = useQuery<PostsQueryResult>(POSTS, {
     variables: {
       data: {
         page,
@@ -35,11 +35,16 @@ function useListPosts({ page = 1, limit = 20 }: ListPostsParamsType = {}) {
     refetch({ data: { ...newVariables } });
   }
 
+  function handleChangeSortPosts(sort: HandleChangeSortPostsParamsType) {
+    refetch({ data: { ...variables?.data, sort } });
+  }
+
   return {
     posts: data?.posts ?? [],
     loading,
     error,
     handleRefetchPosts,
+    handleChangeSortPosts,
   };
 }
 
