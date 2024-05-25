@@ -30,9 +30,21 @@ async function findUserPost(data: FindUserPostParamsType) {
   return result?.data?.[0];
 }
 
+async function findUserPosts(user: string) {
+  const query = fql`Posts.where(.owner.id == ${user} && .active == true);`;
+  const result = (await handleQuery(query)) as FindUserPostResultType;
+  return result?.data;
+}
+
 async function findPostById(id: string) {
   const query = fql`Posts.byId(${id});`;
   return handleQuery(query) as unknown as Post;
+}
+
+async function findPostsById(ids: string[]) {
+  const query = fql`Posts.where(post => post.active == true && ${ids}.includes(post.id));`;
+  const result = (await handleQuery(query)) as FindUserPostResultType;
+  return result?.data;
 }
 
 async function listPosts(data: ListsPostsParamsType) {
@@ -100,7 +112,9 @@ async function deleteSavedPost(data: DeleteSavedPostParamsType) {
 
 export {
   findPostById,
+  findPostsById,
   findUserPost,
+  findUserPosts,
   listPosts,
   createPost,
   updatePost,

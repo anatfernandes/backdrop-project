@@ -7,6 +7,7 @@ import {
   FindSessionByUserResultType,
   FindUserResultType,
   QueryType,
+  FindFollowResultType,
 } from "./types";
 
 async function findUserById(id: string) {
@@ -43,7 +44,13 @@ async function findUsersByNameOrUsername(name: string) {
 
 async function findFollowing(follower: string) {
   const query = fql`Follows.where(.follower.id == ${follower});`;
-  const result = (await handleQuery(query)) as FindUserResultType;
+  const result = (await handleQuery(query)) as FindFollowResultType;
+  return result?.data;
+}
+
+async function findFollowers(followed: string) {
+  const query = fql`Follows.where(.followed.id == ${followed});`;
+  const result = (await handleQuery(query)) as FindFollowResultType;
   return result?.data;
 }
 
@@ -74,6 +81,7 @@ export {
   findUsersById,
   findUsersByNameOrUsername,
   findFollowing,
+  findFollowers,
   findSessionByUser,
   createUser,
   createSession,

@@ -1,11 +1,13 @@
 import { Query, QueryValue } from "fauna";
-import { FullUser, Session, User } from "../../models";
+import { Follow, FullUser, Session, User } from "../../models";
 
 type CreateUserParamsType = Omit<FullUser, "id">;
 
 type CreateSessionParamsType = Omit<Session, "id">;
 
 type FindUserResultType = { data: User[] | null };
+
+type FindFollowResultType = { data: Follow[] | null };
 
 type FindSessionByUserResultType = Session | null;
 
@@ -15,6 +17,7 @@ export type {
   CreateUserParamsType,
   CreateSessionParamsType,
   FindSessionByUserResultType,
+  FindFollowResultType,
   FindUserResultType,
   QueryType,
 };

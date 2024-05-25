@@ -9,4 +9,10 @@ async function findSavedByUser(user: string, posts: ListSavedByUserParamsType = 
   return result?.data;
 }
 
-export { findSavedByUser };
+async function findAllSavedByUser(user: string) {
+  const query = fql`Saved.where(.user.id == ${user});`;
+  const result = (await handleQuery(query)) as ListSavedByUserResultType;
+  return result?.data;
+}
+
+export { findSavedByUser, findAllSavedByUser };
