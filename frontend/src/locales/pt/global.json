@@ -58,9 +58,20 @@
       "Error": "Não foi possível realizar o login. Por favor, tente novamente."
     }
   },
+  "Explore": {
+    "Explore": "Explorar",
+    "NoData": "Não há postagens por aqui ainda!",
+    "Sort": {
+      "SortBy": "Classificar por: ",
+      "By": {
+        "Date": "Recentes",
+        "Like": "Populares"
+      }
+    }
+  },
   "Pages": {
     "Home": "Página inicial",
-    "Explore": "Exlorar",
+    "Explore": "Explorar",
     "CreatePost": "Criar publicação",
     "Notifications": "Notificações",
     "Profile": "Meu perfil",
@@ -109,6 +120,24 @@
         "Success": "Postagem deletada com sucesso!",
         "Error": "Não foi possível deletar a postagem!"
       }
+    },
+    "Comment": {
+      "Comment": "Comentar",
+      "Author": "autor",
+      "List": {
+        "Error": "Ocorreu um erro ao buscar os comentários!",
+        "NoData": "Ainda não há comentários."
+      },
+      "Create": {
+        "Placeholder": "Adicionar comentário",
+        "@Submit": {
+          "Error": "Não foi possível salvar comentário!"
+        }
+      }
+    },
+    "Load": {
+      "New": "Carregar novas postagens",
+      "More": "Carregar mais postagens"
     }
   },
   "Topic": {
@@ -143,6 +172,10 @@
       "WOMEN_EMPOWERMENT": "Empoderamento feminino"
     }
   },
+  "Locale": {
+    "Locale": "Localidade",
+    "Interest": "Insira a localidade de interesse"
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Deletar Postagem",
@@ -155,6 +188,7 @@
     "Cancel": "Cancelar",
     "Delete": "Deletar",
     "Edit": "Editar",
+    "Filter": "Filtrar",
     "Attention": "Atenção",
     "Search": "Buscar",
     "NotLoggedUserError": "É preciso estar logado para prosseguir!",

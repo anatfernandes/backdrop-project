@@ -58,6 +58,17 @@
       "Error": "Unable to log in. Please try again."
     }
   },
+  "Explore": {
+    "Explore": "Explore",
+    "NoData": "There are no posts here yet!",
+    "Sort": {
+      "SortBy": "Sort by: ",
+      "By": {
+        "Date": "Recent",
+        "Like": "Popular"
+      }
+    }
+  },
   "Pages": {
     "Home": "Home",
     "Explore": "Explore",
@@ -109,6 +120,24 @@
         "Success": "Post deleted successfully!",
         "Error": "Unable to delete post!"
       }
+    },
+    "Comment": {
+      "Comment": "Comment",
+      "Author": "author",
+      "List": {
+        "Error": "An error occurred while fetching comments!",
+        "NoData": "No comments yet."
+      },
+      "Create": {
+        "Placeholder": "Add comment",
+        "@Submit": {
+          "Error": "Unable to save comment!"
+        }
+      }
+    },
+    "Load": {
+      "New": "Load new posts",
+      "More": "Load more posts"
     }
   },
   "Topic": {
@@ -143,6 +172,10 @@
       "WOMEN_EMPOWERMENT": "Women empowerment"
     }
   },
+  "Locale": {
+    "Locale": "Location",
+    "Interest": "Enter the location of interest"
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Delete Post",
@@ -155,6 +188,7 @@
     "Cancel": "Cancel",
     "Delete": "Delete",
     "Edit": "Edit",
+    "Filter": "Filter",
     "Attention": "Attention",
     "Search": "Search",
     "NotLoggedUserError": "You must be logged in to proceed!",
