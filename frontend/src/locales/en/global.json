@@ -58,6 +58,13 @@
       "Error": "Unable to log in. Please try again."
     }
   },
+  "SignOut": {
+    "SignOut": "Logout",
+    "@Submit": {
+      "Success": "Logout successfully!",
+      "Error": "Unable to logout!"
+    }
+  },
   "Explore": {
     "Explore": "Explore",
     "NoData": "There are no posts here yet!",

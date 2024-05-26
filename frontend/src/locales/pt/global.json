@@ -58,6 +58,13 @@
       "Error": "Não foi possível realizar o login. Por favor, tente novamente."
     }
   },
+  "SignOut": {
+    "SignOut": "Sair",
+    "@Submit": {
+      "Success": "Logout realizado com sucesso!",
+      "Error": "Não foi possível realizar o logout!"
+    }
+  },
   "Explore": {
     "Explore": "Explorar",
     "NoData": "Não há postagens por aqui ainda!",
