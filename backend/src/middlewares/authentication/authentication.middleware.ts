@@ -15,8 +15,8 @@ function getUser(token: string) {
   return payload.user;
 }
 
-async function getSessionId(user: string) {
-  const session = await repository.findSessionByUser(user);
+async function getSessionId(user: string, token: string) {
+  const session = await repository.findSessionByUser(user, token);
   return session?.id;
 }
 
@@ -29,7 +29,7 @@ function authenticationMiddleware() {
     try {
       const user = getUser(token);
 
-      const session = await getSessionId(user);
+      const session = await getSessionId(user, token);
       if (!session) return responseHelper.UNAUTHORIZED({ res });
 
       res.locals.userId = user;
@@ -50,7 +50,7 @@ class AuthenticationChecker implements AuthCheckerInterface<ContextType> {
     try {
       const user = getUser(token);
 
-      const session = await getSessionId(user);
+      const session = await getSessionId(user, token);
       if (!session) return false;
 
       context.user = user;

@@ -54,8 +54,9 @@ async function findFollowers(followed: string) {
   return result?.data;
 }
 
-async function findSessionByUser(user: string) {
-  const query = fql`Sessions.firstWhere(.user == Users(${user}) && .active == true);`;
+async function findSessionByUser(user: string, token: string) {
+  const query = fql`Sessions.firstWhere(.user == Users(${user})
+    && .token == ${token} && .active == true);`;
   return (await handleQuery(query)) as FindSessionByUserResultType;
 }
 
@@ -74,6 +75,11 @@ async function createSession(data: CreateSessionParamsType) {
   return handleQuery(updateSessionQuery);
 }
 
+async function finishSession(id: string) {
+  const query = fql`Sessions.byId(${id})!.update({ active: false });`;
+  return handleQuery(query);
+}
+
 export {
   findUserById,
   findUserByEmail,
@@ -85,4 +91,5 @@ export {
   findSessionByUser,
   createUser,
   createSession,
+  finishSession,
 };

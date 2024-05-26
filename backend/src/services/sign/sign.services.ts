@@ -2,7 +2,10 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { pick } from "lodash";
 import { conflictError, notFoundError } from "../../helpers/errors.helper";
-import { createDefaultSession, createDefaultUser } from "../../helpers/create-default-entities";
+import {
+  createDefaultSession,
+  createDefaultUser,
+} from "../../helpers/create-default-entities";
 import * as repository from "../../repositories/sign/sign.repository";
 import { FullUser, PostSignInParamsType, PostSignUpParamsType } from "./types";
 
@@ -11,7 +14,9 @@ async function postSignUp(data: PostSignUpParamsType) {
   if (haveUserWithEmail) throw conflictError("There is already a user with this email!");
 
   const haveUserWithUsername = await repository.findUserByUsername(data.username);
-  if (haveUserWithUsername) throw conflictError("There is already a user with this username!");
+  if (haveUserWithUsername) {
+    throw conflictError("There is already a user with this username!");
+  }
 
   const password = await bcrypt.hash(data.password, 13);
 
@@ -39,4 +44,8 @@ async function postSignIn(data: PostSignInParamsType) {
   };
 }
 
-export { postSignUp, postSignIn };
+async function postSignOut(session: string) {
+  return repository.finishSession(session);
+}
+
+export { postSignUp, postSignIn, postSignOut };

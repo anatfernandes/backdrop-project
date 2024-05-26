@@ -30,4 +30,15 @@ async function postSignIn(req: Request, res: Response) {
   }
 }
 
-export { postSignUp, postSignIn };
+async function postSignOut(_: Request, res: Response) {
+  const session: string = res.locals.sessionId;
+
+  try {
+    await signService.postSignOut(session);
+    return responseHelper.NO_CONTENT({ res });
+  } catch (error: any) {
+    return responseHelper.SERVER_ERROR({ res });
+  }
+}
+
+export { postSignUp, postSignIn, postSignOut };
