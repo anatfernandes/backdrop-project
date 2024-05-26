@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLogout } from "../../hooks/requests/api/mutations";
 import { useLocalStorage, useLocale } from "../../hooks";
 import { Icon, Popover } from "../shared";
@@ -9,11 +9,18 @@ function Footer() {
   const { t } = useLocale();
   const { localStorageData: user } = useLocalStorage();
   const { handleLogout } = useLogout();
+  const navigate = useNavigate();
 
   function logout(e: EventParamsType) {
     const event = e as EventType;
     if (event.type !== "click" && event.key !== "Enter") return;
     handleLogout();
+  }
+
+  function navigateToSettings(e: EventParamsType) {
+    const event = e as EventType;
+    if (event.type !== "click" && event.key !== "Enter") return;
+    navigate("/settings/profile");
   }
 
   return (
@@ -41,6 +48,10 @@ function Footer() {
           </button>
 
           <ul className="popover__content">
+            <li tabIndex={0} onClick={navigateToSettings} onKeyUp={navigateToSettings}>
+              {t("Settings.Settings")}
+            </li>
+
             <li tabIndex={0} onClick={logout} onKeyUp={logout}>
               {t("SignOut.SignOut")}
             </li>

@@ -11,7 +11,7 @@ const Wrapper = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: var(--secondary);
   transition: all 0.1s ease;

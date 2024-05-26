@@ -1,10 +1,18 @@
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ThemeContextProvider, UserContextProvider } from "../../contexts";
 import { PrivatePage } from "../private-page";
+import { Preferences } from "../preferences";
 import { Header } from "../header";
 import { Footer } from "../footer";
-import { ExplorePage, HomePage, SavePostPage, SignPage, UserPage } from "../../pages";
+import {
+  ExplorePage,
+  HomePage,
+  SavePostPage,
+  SettingsPage,
+  SignPage,
+  UserPage,
+} from "../../pages";
 
 function App() {
   return (
@@ -31,6 +39,12 @@ function App() {
               <Route path="/home" element={<HomePage />} />
               <Route path="/explore" element={<ExplorePage />} />
               <Route path="/users/:id" element={<UserPage />} />
+
+              <Route path="settings" element={<SettingsPage />}>
+                <Route path="profile" element={<></>} />
+                <Route path="preferences" element={<Preferences />} />
+                <Route path="*" element={<Navigate to="profile" />} />
+              </Route>
             </Route>
           </Routes>
         </UserContextProvider>
