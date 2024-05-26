@@ -30,16 +30,12 @@ function Header() {
             <Icon type="plus" title={t("Pages.CreatePost")} />
           </Link>
 
-          <Link to="/notifications" title={t("Pages.Notifications")}>
-            <Icon type="notification" title={t("Pages.Notifications")} />
-          </Link>
-
           <Link to={`/users/${user.id}`} title={t("Pages.Profile")}>
             <Icon type="person" title={t("Pages.Profile")} />
           </Link>
 
           <Link to="/settings/profile" title={t("Pages.Settings")}>
-            <Icon type="settings" title={t("Pages.Settings")} />
+            <Icon type="menu" title={t("Pages.Settings")} />
           </Link>
         </nav>
       </section>
