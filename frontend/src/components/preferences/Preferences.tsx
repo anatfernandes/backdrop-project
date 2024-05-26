@@ -1,10 +1,11 @@
 import { Wrapper } from "./styles";
-import { Themes } from "./preferences-components";
+import { Language, Themes } from "./preferences-components";
 
 function Preferences() {
   return (
     <Wrapper>
       <Themes />
+      <Language />
     </Wrapper>
   );
 }
