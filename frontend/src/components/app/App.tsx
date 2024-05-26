@@ -43,7 +43,8 @@ function App() {
               <Route path="settings" element={<SettingsPage />}>
                 <Route path="profile" element={<></>} />
                 <Route path="preferences" element={<Preferences />} />
-                <Route path="*" element={<Navigate to="profile" />} />
+                <Route path="*" element={<Navigate to="profile" replace />}></Route>
+                <Route path="" element={<Navigate to="profile" replace />}></Route>
               </Route>
             </Route>
           </Routes>
