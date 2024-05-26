@@ -1,9 +1,10 @@
 import { useLocale } from "../../../hooks";
 import { Wrapper } from "./styles";
+import { NoDataParamsType } from "./types";
 
-function NoData({ children }: Readonly<Partial<React.PropsWithChildren>>) {
+function NoData({ children, ...other }: Readonly<NoDataParamsType>) {
   const { t } = useLocale();
-  return <Wrapper>{children ?? t("Common.NoData")}</Wrapper>;
+  return <Wrapper {...other}>{children ?? t("Common.NoData")}</Wrapper>;
 }
 
 export { NoData };
