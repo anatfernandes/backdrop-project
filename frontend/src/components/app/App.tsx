@@ -4,7 +4,7 @@ import { ThemeContextProvider, UserContextProvider } from "../../contexts";
 import { PrivatePage } from "../private-page";
 import { Header } from "../header";
 import { Footer } from "../footer";
-import { ExplorePage, HomePage, SavePostPage, SignPage } from "../../pages";
+import { ExplorePage, HomePage, SavePostPage, SignPage, UserPage } from "../../pages";
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
               <Route path="/post" element={<SavePostPage />} />
               <Route path="/home" element={<HomePage />} />
               <Route path="/explore" element={<ExplorePage />} />
+              <Route path="/users/:id" element={<UserPage />} />
             </Route>
           </Routes>
         </UserContextProvider>

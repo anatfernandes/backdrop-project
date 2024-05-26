@@ -8,6 +8,11 @@ type FullUserType = {
   avatar: string;
   background: string;
   topics: [TopicType];
+  posts: [PostType];
+  liked: [PostType];
+  saved: [PostType];
+  following: [UserType];
+  followed: [UserType];
   type: UserTypesType;
   active: boolean;
   createdAt: string;
