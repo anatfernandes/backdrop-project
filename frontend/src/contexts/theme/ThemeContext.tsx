@@ -7,7 +7,7 @@ import {
   ReducerAction,
   ThemeNameType,
   ThemeType,
-  GetDefaultThemeParamsType
+  GetDefaultThemeParamsType,
 } from "./types";
 
 const ThemeContext = createContext<ThemeContextType>(null);
@@ -21,7 +21,7 @@ function getDefaultTheme(storageHook: GetDefaultThemeParamsType) {
     storageHook.addInLocalStorage({ theme: "light" });
     return themes.light;
   }
-  
+
   if (!storageHook.localStorageData.token) return themes.light;
 
   return themes[storageHook.localStorageData.theme] || themes.light;
@@ -32,6 +32,7 @@ function ThemeContextProvider({ children }: React.PropsWithChildren) {
   const [theme, dispatch] = useReducer(reducer, getDefaultTheme(storageHook));
 
   function handleChangeTheme(theme: ThemeNameType) {
+    storageHook.addInLocalStorage({ theme });
     return dispatch({ type: theme });
   }
 

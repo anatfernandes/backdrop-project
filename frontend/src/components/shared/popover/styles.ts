@@ -19,7 +19,7 @@ const Wrapper = styled.div<WrapperStyleParamsType>`
     right: 0;
     z-index: 4;
     background-color: var(--white);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 5px 0 var(--dark-gray);
     font-size: 0.9rem;
     color: var(--black);
     transform: translate(0, 10px);

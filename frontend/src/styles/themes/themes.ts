@@ -18,6 +18,19 @@ const themes: ThemesType = {
       ...neutral,
     },
   },
+  dark: {
+    name: "dark",
+    colors: {
+      primary: "#CC006D",
+      secondary: "#0EC0C1",
+      red: "#EB4335",
+      gold: "#F5B04B",
+      white: "#272727",
+      lightGray: neutral.darkGray,
+      darkGray: neutral.lightGray,
+      black: neutral.white,
+    },
+  },
 };
 
 export { themes };

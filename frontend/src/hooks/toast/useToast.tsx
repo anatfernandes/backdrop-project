@@ -8,6 +8,7 @@ function useToast() {
   const { theme } = useTheme();
   const themes: ThemesType = {
     light: "light",
+    dark: "dark",
   };
 
   return ({ text, title, type }: ToastParamsType) => {

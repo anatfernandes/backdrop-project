@@ -12,7 +12,7 @@ type ThemeType = {
   };
 };
 
-type ThemeNameType = "light";
+type ThemeNameType = "light" | "dark";
 
 type ThemesType = {
   [theme in ThemeNameType]: ThemeType;

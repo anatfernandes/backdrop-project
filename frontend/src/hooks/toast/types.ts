@@ -1,6 +1,6 @@
 import { themeTypes } from "../../contexts";
 
-type ToastThemesType = "light";
+type ToastThemesType = "light" | "dark";
 
 type ToastTypes = "info" | "success" | "error" | "warning";
 

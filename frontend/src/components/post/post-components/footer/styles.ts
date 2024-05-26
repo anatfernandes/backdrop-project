@@ -12,6 +12,7 @@ const Wrapper = styled.footer`
     background-color: var(--white);
     display: flex;
     align-items: center;
+    color: var(--black);
     outline: none;
 
     > svg {
