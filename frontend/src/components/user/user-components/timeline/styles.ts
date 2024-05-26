@@ -6,7 +6,7 @@ const Wrapper = styled.section`
 
   menu {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     border-bottom: 2px solid var(--light-gray);
     display: flex;
     background-color: var(--white);

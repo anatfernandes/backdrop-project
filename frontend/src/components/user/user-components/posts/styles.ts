@@ -5,6 +5,10 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  & article:nth-child(1) {
+    margin: 0;
+  }
 `;
 
 export { Wrapper };
