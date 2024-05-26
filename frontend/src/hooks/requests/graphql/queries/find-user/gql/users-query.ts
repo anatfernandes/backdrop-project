@@ -101,4 +101,20 @@ const USER = gql`
   }
 `;
 
-export { USER };
+const USER_FOR_UPDATE = gql`
+  query userForUpdate($id: String!) {
+    user(id: $id) {
+      id
+      name
+      email
+      about
+      avatar
+      background
+      topics {
+        id
+      }
+    }
+  }
+`;
+
+export { USER, USER_FOR_UPDATE };

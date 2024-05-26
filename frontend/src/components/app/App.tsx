@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import { ThemeContextProvider, UserContextProvider } from "../../contexts";
 import { PrivatePage } from "../private-page";
 import { Preferences } from "../preferences";
+import { UpdateUser } from "../update-user";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import {
@@ -41,7 +42,7 @@ function App() {
               <Route path="/users/:id" element={<UserPage />} />
 
               <Route path="settings" element={<SettingsPage />}>
-                <Route path="profile" element={<></>} />
+                <Route path="profile" element={<UpdateUser />} />
                 <Route path="preferences" element={<Preferences />} />
                 <Route path="*" element={<Navigate to="profile" replace />}></Route>
                 <Route path="" element={<Navigate to="profile" replace />}></Route>
