@@ -176,6 +176,24 @@
     "Locale": "Localidade",
     "Interest": "Insira a localidade de interesse"
   },
+  "Profile": {
+    "Following": "Seguindo",
+    "Followers": "Seguidores",
+    "Timeline": {
+      "Posts": "Posts",
+      "Liked": "Curtidos",
+      "Saved": "Salvos",
+      "Following": "Seguindo",
+      "Followers": "Seguidores"
+    },
+    "NoData": {
+      "Posts": "Não há postagens ainda!",
+      "Users": "Não há seguidores ainda!"
+    },
+    "@Fetch": {
+      "Error": "Não foi possível buscar as informações do usuário!"
+    }
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Deletar Postagem",

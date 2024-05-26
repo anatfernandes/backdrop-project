@@ -176,6 +176,24 @@
     "Locale": "Location",
     "Interest": "Enter the location of interest"
   },
+  "Profile": {
+    "Following": "Following",
+    "Followers": "Followers",
+    "Timeline": {
+      "Posts": "Posts",
+      "Liked": "Liked",
+      "Saved": "Saved",
+      "Following": "Following",
+      "Followers": "Followers"
+    },
+    "NoData": {
+      "Posts": "There are no posts yet!",
+      "Users": "No followers yet!"
+    },
+    "@Fetch": {
+      "Error": "Unable to fetch user information!"
+    }
+  },
   "Modal": {
     "DeletePost": {
       "Title": "Delete Post",
