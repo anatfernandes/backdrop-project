@@ -1,8 +1,9 @@
 // original code: https://codepen.io/chocochip/pen/zYxMgRG
 
 import styled from "styled-components";
+import { WrapperStyleParamsType } from "./types";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WrapperStyleParamsType>`
   position: relative;
   display: inline-block;
 
@@ -13,7 +14,8 @@ const Wrapper = styled.div`
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    top: 42px;
+    top: ${(props) => props.$top};
+    bottom: ${(props) => props.$bottom};
     right: 0;
     z-index: 4;
     background-color: var(--white);
