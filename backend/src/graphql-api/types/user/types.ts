@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import { Field, InputType } from "type-graphql";
-import { ArrayMinSize, Length, Matches, ValidateIf } from "class-validator";
+import { ArrayMinSize, Length, Matches, MaxLength, ValidateIf } from "class-validator";
 import { User, Post, Topic } from "../../../models";
 
 @InputType()
@@ -27,6 +27,7 @@ class UpdateUserInput {
   email: string;
 
   @Field({ defaultValue: "" })
+  @MaxLength(200)
   about: string;
 
   @Field(() => [String])
