@@ -12,9 +12,17 @@
       "Username": "Nome de usuário",
       "Placeholder": "Insira seu nome de usuário"
     },
+    "About": {
+      "About": "Bio",
+      "Placeholder": "Conte um pouco sobre você :)"
+    },
     "Avatar": {
       "Avatar": "Avatar",
       "Placeholder": "Insira o link de seu avatar"
+    },
+    "Background": {
+      "Background": "Background",
+      "Placeholder": "Insira o link do background de seu perfil"
     },
     "Email": {
       "Email": "Email",
@@ -29,6 +37,21 @@
     "ConfirmPassword": {
       "ConfirmPassword": "Confirme a senha",
       "Placeholder": "Confirme sua senha"
+    },
+    "Topics": {
+      "Topics": "Tópicos de interesse",
+      "Placeholder": "Escolha os tópicos de seu interesse"
+    },
+    "Update": {
+      "FormValidation": {
+        "BackgroundExtension": "Seu background deve ser uma imagem!",
+        "AboutLengthRequired": "Sua bio deve ter no máximo 200 caracteres!",
+        "TopicsRequired": "Escolha pelo menos 1 tópico de interesse!"
+      },
+      "@Submit": {
+        "Error": "Não foi possível atualizar perfil!",
+        "Success": "Perfil atualizado com sucesso!"
+      }
     }
   },
   "SignUp": {
@@ -234,6 +257,7 @@
     "Cancel": "Cancelar",
     "Delete": "Deletar",
     "Edit": "Editar",
+    "Update": "Atualizar",
     "Filter": "Filtrar",
     "Attention": "Atenção",
     "Search": "Buscar",
