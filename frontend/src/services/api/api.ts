@@ -60,9 +60,14 @@ const postSignIn = (body: PostSignInParamsType) => {
   return postRequest({ path: "/auth/sign-in", body, haveResponse: true });
 };
 
+const postSignOut = () => {
+  return postRequest({ path: "/auth/sign-out" });
+};
+
 const api = {
   postSignUp,
   postSignIn,
+  postSignOut,
 };
 
 export { api };

@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
+import { useLogout } from "../../hooks/requests/api/mutations";
 import { useLocalStorage, useLocale } from "../../hooks";
-import { Icon } from "../shared";
+import { Icon, Popover } from "../shared";
 import { Wrapper } from "./styles";
+import { EventParamsType, EventType } from "./types";
 
 function Footer() {
   const { t } = useLocale();
   const { localStorageData: user } = useLocalStorage();
+  const { handleLogout } = useLogout();
+
+  function logout(e: EventParamsType) {
+    const event = e as EventType;
+    if (event.type !== "click" && event.key !== "Enter") return;
+    handleLogout();
+  }
 
   return (
     <Wrapper>
@@ -26,9 +35,17 @@ function Footer() {
           <Icon type="person" title={t("Pages.Profile")} />
         </Link>
 
-        <Link to="/settings/profile" title={t("Pages.Settings")}>
-          <Icon type="menu" title={t("Pages.Settings")} />
-        </Link>
+        <Popover local="top">
+          <button id="settings">
+            <Icon type="menu" title={t("Pages.Settings")} />
+          </button>
+
+          <ul className="popover__content">
+            <li tabIndex={0} onClick={logout} onKeyUp={logout}>
+              {t("SignOut.SignOut")}
+            </li>
+          </ul>
+        </Popover>
       </nav>
     </Wrapper>
   );

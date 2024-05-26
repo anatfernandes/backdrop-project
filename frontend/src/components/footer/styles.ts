@@ -24,7 +24,12 @@ const Wrapper = styled.footer`
     justify-content: space-between;
   }
 
-  a {
+  button#settings {
+    background-color: transparent;
+  }
+
+  a,
+  button#settings {
     width: 15%;
     min-width: 2.5rem;
     height: 2rem;
@@ -39,15 +44,47 @@ const Wrapper = styled.footer`
 
   a:focus-within,
   a:focus,
-  a:hover {
+  a:hover,
+  button#settings:focus-within,
+  button#settings:focus,
+  button#settings:hover {
     svg {
       color: var(--secondary) !important;
     }
   }
 
   a:focus-within,
-  a:focus {
+  a:focus,
+  button#settings:focus-within,
+  button#settings:focus {
     border-color: var(--secondary);
+  }
+
+  ul {
+    padding: 2.5px 0;
+    cursor: pointer;
+  }
+
+  ul li {
+    width: 100%;
+    line-height: 2rem;
+    padding: 0 10px;
+    background-color: var(--white);
+    border: 1px solid transparent;
+    border-left: none;
+    border-right: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    outline: none;
+  }
+
+  ul li:hover,
+  ul li:focus-within {
+    filter: brightness(0.9);
+  }
+
+  ul li:focus-within {
+    border-color: var(--dark-gray);
   }
 
   @media (max-width: 500px) {
