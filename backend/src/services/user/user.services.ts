@@ -7,6 +7,11 @@ function findUser(id: string) {
   return repository.findUserById(id);
 }
 
+async function findUsersByName(name: string) {
+  const users = await repository.findUsersByNameOrUsername(name);
+  return users ?? [];
+}
+
 async function updateUser(data: EditUserParamsType) {
   const user = await repository.findUserById(data.user);
 
@@ -24,4 +29,4 @@ async function updateUser(data: EditUserParamsType) {
   await repository.updateUser(data.user, updatedUser);
 }
 
-export { findUser, updateUser };
+export { findUser, findUsersByName, updateUser };

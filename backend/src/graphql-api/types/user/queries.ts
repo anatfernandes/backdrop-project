@@ -9,6 +9,12 @@ class UserQueriesResolver {
   user(@Arg("id") id: string): Promise<User> {
     return service.findUser(id);
   }
+
+  @Authorized()
+  @Query(() => [User])
+  usersByName(@Arg("name") name: string): Promise<User[]> {
+    return service.findUsersByName(name);
+  }
 }
 
 export { UserQueriesResolver };

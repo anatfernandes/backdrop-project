@@ -36,8 +36,8 @@ async function findUserByUsername(username: string) {
 }
 
 async function findUsersByNameOrUsername(name: string) {
-  const query = fql`Users.where(u => u.name.toLowerCase().includes(${name})
-    || u.username.toLowerCase().includes(${name}));`;
+  const query = fql`Users.where(.name.toLowerCase().includes(${name.toLowerCase()})
+    || .username.toLowerCase().includes(${name.toLowerCase()}));`;
 
   const result = (await handleQuery(query)) as FindUserResultType;
   return result?.data;
