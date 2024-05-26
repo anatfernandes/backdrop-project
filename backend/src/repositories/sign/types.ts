@@ -5,6 +5,10 @@ type CreateUserParamsType = Omit<FullUser, "id">;
 
 type CreateSessionParamsType = Omit<Session, "id">;
 
+type UpdateUserParamsType = Omit<FullUser, "id" | "password" | "topics"> & {
+  topics: string[];
+};
+
 type FindUserResultType = { data: User[] | null };
 
 type FindFollowResultType = { data: Follow[] | null };
@@ -16,6 +20,7 @@ type QueryType = QueryValue | Query;
 export type {
   CreateUserParamsType,
   CreateSessionParamsType,
+  UpdateUserParamsType,
   FindSessionByUserResultType,
   FindFollowResultType,
   FindUserResultType,

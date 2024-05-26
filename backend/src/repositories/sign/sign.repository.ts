@@ -8,6 +8,7 @@ import {
   FindUserResultType,
   QueryType,
   FindFollowResultType,
+  UpdateUserParamsType,
 } from "./types";
 
 async function findUserById(id: string) {
@@ -65,6 +66,13 @@ function createUser(data: CreateUserParamsType) {
   return handleQuery(query);
 }
 
+function updateUser(id: string, data: UpdateUserParamsType) {
+  const query = fql`Users.byId(${id})!
+    .update(${data})
+    .update({ topics: ${data.topics}.map(topic => Topics(topic)) });`;
+  return handleQuery(query);
+}
+
 async function createSession(data: CreateSessionParamsType) {
   const createSessionQuery = fql`Sessions.create(${data as unknown as QueryType});`;
   const createdSession = (await handleQuery(createSessionQuery)) as unknown as Session;
@@ -90,6 +98,7 @@ export {
   findFollowers,
   findSessionByUser,
   createUser,
+  updateUser,
   createSession,
   finishSession,
 };

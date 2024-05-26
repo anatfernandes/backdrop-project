@@ -3,7 +3,7 @@ import { HealthQueriesResolver } from "./types/health";
 import { TopicQueriesResolver } from "./types/topic";
 import { PostMutationsResolver, PostQueriesResolver, PostResolver } from "./types/post";
 import { CommentQueriesResolver, CommentResolver } from "./types/comment";
-import { UserQueriesResolver, UserResolver } from "./types/user";
+import { UserMutationsResolver, UserQueriesResolver, UserResolver } from "./types/user";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const resolvers: NonEmptyArray<any> = [
@@ -14,8 +14,9 @@ const resolvers: NonEmptyArray<any> = [
   PostMutationsResolver,
   CommentQueriesResolver,
   CommentResolver,
-  UserQueriesResolver,
   UserResolver,
+  UserQueriesResolver,
+  UserMutationsResolver,
 ];
 
 export { resolvers };
