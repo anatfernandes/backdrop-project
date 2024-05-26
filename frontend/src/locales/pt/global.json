@@ -76,6 +76,27 @@
       }
     }
   },
+  "Settings": {
+    "Settings": "Configurações",
+    "Profile": {
+      "Profile": "Perfil"
+    },
+    "Preferences": {
+      "Preferences": "Preferências",
+      "Themes": {
+        "Themes": "Temas",
+        "Light": "Claro",
+        "Dark": "Escuro"
+      },
+      "Language": {
+        "Language": "Idioma",
+        "Languages": {
+          "EN": "Inglês",
+          "PT_BR": "Português"
+        }
+      }
+    }
+  },
   "Pages": {
     "Home": "Página inicial",
     "Explore": "Explorar",
