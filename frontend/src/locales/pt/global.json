@@ -57,6 +57,18 @@
         "Error": "Não foi possível atualizar perfil!",
         "Success": "Perfil atualizado com sucesso!"
       }
+    },
+    "Follow": {
+      "Follow": "Seguir",
+      "@Submit": {
+        "Error": "Não foi possível seguir usuário!"
+      }
+    },
+    "Unfollow": {
+      "Unfollow": "Deixar de seguir",
+      "@Submit": {
+        "Error": "Não foi possível deixar de seguir usuário!"
+      }
     }
   },
   "SignUp": {

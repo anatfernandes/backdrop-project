@@ -57,6 +57,18 @@
         "Error": "Unable to update profile!",
         "Success": "Profile updated successfully!"
       }
+    },
+    "Follow": {
+      "Follow": "Follow",
+      "@Submit": {
+        "Error": "Unable to follow user!"
+      }
+    },
+    "Unfollow": {
+      "Unfollow": "Unfollow",
+      "@Submit": {
+        "Error": "Unable to unfollow user!"
+      }
     }
   },
   "SignUp": {
