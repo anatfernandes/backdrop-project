@@ -1,6 +1,6 @@
 type EventParamsType =
-  | React.MouseEvent<HTMLLIElement, MouseEvent>
-  | React.KeyboardEvent<HTMLLIElement>;
+  | React.MouseEvent<HTMLLIElement | HTMLElement, MouseEvent>
+  | React.KeyboardEvent<HTMLLIElement | HTMLElement>;
 
 type EventType = { key: string } & EventParamsType;
 
