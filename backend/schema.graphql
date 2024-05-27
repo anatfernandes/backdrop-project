@@ -3,6 +3,181 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Comment {
+  createdAt: Float!
+  id: ID!
+  message: String!
+  post: Post!
+  user: User!
+}
+
+input CommentPostInput {
+  message: String!
+  post: String!
+}
+
+input CreatePostInput {
+  content: String!
+  links: [String]! = []
+  locale: String! = ""
+  owner: String!
+  topics: [String!]!
+}
+
+input DeletePostInput {
+  post: String!
+}
+
+input FollowUserInput {
+  followed: String!
+  value: Boolean!
+}
+
+input ListCommentsInput {
+  post: String!
+}
+
+input ListPostsInput {
+  context: String! = ""
+  limit: Float! = 20
+  page: Float! = 1
+  sort: ListPostsSortInput! = {by: "date", direction: "desc"}
+  user: String! = ""
+  where: ListPostsWhereInput! = {locale: "", topics: [], users: []}
+}
+
+input ListPostsSortInput {
+  by: String! = "date"
+  direction: String! = "desc"
+}
+
+input ListPostsWhereInput {
+  locale: String! = ""
+  topics: [String!] = []
+  users: [String!] = []
+}
+
+type Mutation {
+  commentPost(data: CommentPostInput!): Boolean!
+  createPost(data: CreatePostInput!): Boolean!
+  deletePost(data: DeletePostInput!): Boolean!
+  findPost(id: String!): Post!
+  followUser(data: FollowUserInput!): Boolean!
+  reactPost(data: ReactPostInput!): Boolean!
+  savePost(data: SavePostInput!): Boolean!
+  updatePost(data: UpdatePostInput!): Boolean!
+  updateUser(data: UpdateUserInput!): Boolean!
+}
+
+type Post {
+  active: Boolean!
+  comments: Float!
+  content: String!
+  createdAt: Float!
+  id: ID!
+  liked: Boolean!
+  links: [String]!
+  locale: String!
+  owner: User!
+  reactions: Float!
+  saved: Boolean!
+  topics: [Topic!]!
+  updatedAt: Float!
+}
+
 type Query {
+  comments(data: ListCommentsInput!): [Comment!]!
   health: String!
+  posts(data: ListPostsInput!): [Post!]!
+  topics: [Topic!]!
+  user(id: String!): User!
+  usersByName(name: String!): [User!]!
+}
+
+input ReactPostInput {
+  post: String!
+  type: String!
+  user: String!
+  value: Boolean!
+}
+
+input SavePostInput {
+  post: String!
+  user: String!
+  value: Boolean!
+}
+
+type Topic {
+  createdAt: Float!
+  id: ID!
+  name: TopicName!
+}
+
+enum TopicName {
+  ABORTION
+  AIR_POLLUTION
+  ANIMAL_RIGHTS
+  CIVIL_RIGHTS
+  CLIMATE_CHANGE
+  CRIME
+  DISCRIMINATION
+  ECONOMIC_INEQUALITY
+  EDUCATION
+  ENVIRONMENTAL_POLITICS
+  EQUALITY
+  HEALTHCARE
+  HOMELESSNESS
+  IMMIGRATION
+  MENTAL_HEALTH
+  OBESITY
+  OVERPOPULATION
+  POVERTY
+  RACISM
+  REFUGEE_CRISIS
+  RIGHTS
+  UNEMPLOYMENT
+  WOMEN_EMPOWERMENT
+}
+
+input UpdatePostInput {
+  content: String!
+  id: String!
+  links: [String]! = []
+  locale: String! = ""
+  topics: [String!]!
+}
+
+input UpdateUserInput {
+  about: String! = ""
+  avatar: String! = ""
+  background: String! = ""
+  email: String! = ""
+  name: String!
+  topics: [String!]!
+}
+
+type User {
+  about: String!
+  active: Boolean!
+  avatar: String!
+  background: String!
+  createdAt: Float!
+  email: String!
+  followed: [User!]!
+  following: [User!]!
+  id: ID!
+  isFollowing: Boolean!
+  liked: [Post!]!
+  name: String!
+  posts: [Post!]!
+  saved: [Post!]!
+  topics: [Topic]!
+  type: UserType!
+  updatedAt: Float!
+  username: String!
+}
+
+enum UserType {
+  ADMIN
+  USER
 }
