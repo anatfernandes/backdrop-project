@@ -50,6 +50,13 @@ class UserResolver {
     const followed = await UserFollowersLoader(root.id);
     return followed ?? [];
   }
+
+  @FieldResolver(() => Boolean)
+  async isFollowing(@Root() root: User, @Ctx() context: ContextType): Promise<boolean> {
+    const followedByUserLogged = await FollowingLoader(context.user ?? "");
+    const following = (followedByUserLogged ?? []).find((user) => user.id === root.id);
+    return !!following;
+  }
 }
 
 export { UserResolver };
