@@ -1,7 +1,12 @@
 {
   "Coming": "Em breve :)",
   "Search": {
-    "Search": "Buscar usuários"
+    "Search": "Buscar usuários",
+    "Placeholder": "Pesquisar",
+    "NoData": "Nenhum usuário encontrado...",
+    "@Fetch": {
+      "Error": "Não foi possível buscar os usuários!"
+    }
   },
   "User": {
     "Name": {

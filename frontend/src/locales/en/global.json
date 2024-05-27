@@ -1,7 +1,12 @@
 {
   "Coming": "Coming soon :)",
   "Search": {
-    "Search": "Search users"
+    "Search": "Search users",
+    "Placeholder": "Search",
+    "NoData": "No users found...",
+    "@Fetch": {
+      "Error": "Unable to search for users!"
+    }
   },
   "User": {
     "Name": {
