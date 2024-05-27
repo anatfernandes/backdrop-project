@@ -13,6 +13,7 @@ type FullUserType = {
   saved: [PostType];
   following: [UserType];
   followed: [UserType];
+  isFollowing: boolean;
   type: UserTypesType;
   active: boolean;
   createdAt: string;

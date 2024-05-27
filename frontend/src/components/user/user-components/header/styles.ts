@@ -19,6 +19,9 @@ const Wrapper = styled.header<WrapperStyleType>`
   #content {
     width: var(--user-view-width);
     max-width: var(--max-user-view-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: absolute;
     top: 75px;
   }

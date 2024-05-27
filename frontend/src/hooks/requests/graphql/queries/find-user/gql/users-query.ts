@@ -9,6 +9,7 @@ const USER = gql`
       about
       avatar
       background
+      isFollowing
 
       following {
         id
