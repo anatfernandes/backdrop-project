@@ -12,7 +12,7 @@ function Header() {
   const { t } = useLocale();
   const { handleLogout } = useLogout();
   const { localStorageData: user } = useLocalStorage();
-  const [isSearching, setIsSearching] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
   const navigate = useNavigate();
 
   function logout(e: EventParamsType) {
