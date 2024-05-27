@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import { useLogout } from "../../hooks/requests/api/mutations";
 import { useLocalStorage, useLocale } from "../../hooks";
 import { Icon, Popover } from "../shared";
+import { SearchUsers } from "../search-users";
 import { Wrapper } from "./styles";
 import { EventParamsType, EventType } from "./types";
 
 function Header() {
   const { t } = useLocale();
-  const { localStorageData: user } = useLocalStorage();
   const { handleLogout } = useLogout();
+  const { localStorageData: user } = useLocalStorage();
+  const [isSearching, setIsSearching] = useState(true);
   const navigate = useNavigate();
 
   function logout(e: EventParamsType) {
@@ -24,12 +27,30 @@ function Header() {
     navigate("/settings/profile");
   }
 
+  function toggleSearchUsers(e: EventParamsType) {
+    const event = e as EventType;
+    if (event.type !== "click" && event.key !== "Enter") return;
+    setIsSearching((prev) => !prev);
+  }
+
+  function handleSetSearchUsers(value: boolean) {
+    setIsSearching(value);
+  }
+
   return (
     <Wrapper>
+      {isSearching && <SearchUsers handleSetSearchUsers={handleSetSearchUsers} />}
+
       <img src={logo} alt="Our Cause's Logo" />
 
       <section>
-        <section id="search" tabIndex={0} title={t("Search.Search")}>
+        <section
+          id="search"
+          tabIndex={0}
+          title={t("Search.Search")}
+          onClick={toggleSearchUsers}
+          onKeyUp={toggleSearchUsers}
+        >
           <Icon type="search" title={t("Search.Search")} />
         </section>
 
