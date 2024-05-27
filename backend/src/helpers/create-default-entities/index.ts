@@ -4,3 +4,4 @@ export * from "./post.helper";
 export * from "./reaction.helper";
 export * from "./saved.helper";
 export * from "./comment.helper";
+export * from "./follow.helper";

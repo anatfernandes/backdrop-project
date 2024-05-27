@@ -1,7 +1,10 @@
 import { omit, pick } from "lodash";
 import * as repository from "../../repositories/sign/sign.repository";
-import { createDefaultUser } from "../../helpers/create-default-entities";
-import { EditUserData, EditUserParamsType } from "./types";
+import {
+  createDefaultUser,
+  createDefaultFollow,
+} from "../../helpers/create-default-entities";
+import { EditUserData, EditUserParamsType, ToggleFollowUserParamsType } from "./types";
 
 function findUser(id: string) {
   return repository.findUserById(id);
@@ -29,4 +32,13 @@ async function updateUser(data: EditUserParamsType) {
   await repository.updateUser(data.user, updatedUser);
 }
 
-export { findUser, findUsersByName, updateUser };
+async function toggleFollowUser(data: ToggleFollowUserParamsType) {
+  const { value, ...follow } = data;
+  const newFollow = createDefaultFollow(follow);
+
+  if (value) return repository.followUser(newFollow);
+
+  return repository.deleteFollowUser(newFollow);
+}
+
+export { findUser, findUsersByName, updateUser, toggleFollowUser };

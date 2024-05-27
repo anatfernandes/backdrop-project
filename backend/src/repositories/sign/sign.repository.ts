@@ -9,6 +9,8 @@ import {
   QueryType,
   FindFollowResultType,
   UpdateUserParamsType,
+  FollowUserParamsType,
+  DeleteFollowUserParamsType,
 } from "./types";
 
 async function findUserById(id: string) {
@@ -66,6 +68,12 @@ function createUser(data: CreateUserParamsType) {
   return handleQuery(query);
 }
 
+async function followUser(data: FollowUserParamsType) {
+  const query = fql`Follows.create(${data})
+    .update({ follower: Users.byId(${data.follower}), followed: Users.byId(${data.followed}) });`;
+  return handleQuery(query);
+}
+
 function updateUser(id: string, data: UpdateUserParamsType) {
   const query = fql`Users.byId(${id})!
     .update(${data})
@@ -88,6 +96,15 @@ async function finishSession(id: string) {
   return handleQuery(query);
 }
 
+async function deleteFollowUser(data: DeleteFollowUserParamsType) {
+  const query = fql`Follows.where(
+      .followed.id == ${data.followed}
+      && .follower.id == ${data.follower}
+    ).forEach(follow => follow.delete());`;
+
+  return handleQuery(query);
+}
+
 export {
   findUserById,
   findUserByEmail,
@@ -98,7 +115,9 @@ export {
   findFollowers,
   findSessionByUser,
   createUser,
+  followUser,
   updateUser,
   createSession,
   finishSession,
+  deleteFollowUser,
 };

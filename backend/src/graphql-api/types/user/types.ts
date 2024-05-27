@@ -35,4 +35,13 @@ class UpdateUserInput {
   topics: string[];
 }
 
-export { Post, User, Topic, UpdateUserInput };
+@InputType()
+class FollowUserInput {
+  @Field()
+  followed: string;
+
+  @Field()
+  value: boolean;
+}
+
+export { Post, User, Topic, UpdateUserInput, FollowUserInput };

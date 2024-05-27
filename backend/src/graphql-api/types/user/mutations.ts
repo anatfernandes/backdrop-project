@@ -1,7 +1,7 @@
 import { Resolver, Mutation, Arg, Authorized, Ctx } from "type-graphql";
 import { ContextType } from "../../../middlewares/authentication/types";
 import * as service from "../../../services/user";
-import { UpdateUserInput } from "./types";
+import { FollowUserInput, UpdateUserInput } from "./types";
 
 @Resolver()
 class UserMutationsResolver {
@@ -12,6 +12,16 @@ class UserMutationsResolver {
     @Ctx() context: ContextType,
   ): Promise<boolean> {
     await service.updateUser({ ...data, user: context.user ?? "" });
+    return true;
+  }
+
+  @Authorized()
+  @Mutation(() => Boolean)
+  async followUser(
+    @Arg("data") data: FollowUserInput,
+    @Ctx() context: ContextType,
+  ): Promise<boolean> {
+    await service.toggleFollowUser({ ...data, follower: context.user ?? "" });
     return true;
   }
 }

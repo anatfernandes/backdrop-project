@@ -9,4 +9,10 @@ type EditUserData = Omit<User, "id" | "topics"> & {
   topics: string[];
 };
 
-export type { User, EditUserParamsType, EditUserData };
+type ToggleFollowUserParamsType = {
+  value: boolean;
+  followed: string;
+  follower: string;
+};
+
+export type { User, EditUserParamsType, EditUserData, ToggleFollowUserParamsType };
