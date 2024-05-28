@@ -15,6 +15,11 @@ const Wrapper = styled.section`
 
 const UserCard = styled(Card)`
   display: flex;
+  margin-bottom: 1rem;
+
+  &:nth-last-child(1) {
+    margin-bottom: 0;
+  }
 
   #user {
     margin-left: 1rem;
@@ -29,7 +34,7 @@ const UserCard = styled(Card)`
 
     p {
       margin-top: 0.4rem;
-      font-size:  0.87rem;
+      font-size: 0.87rem;
       color: var(--black);
       word-break: break-all;
     }
