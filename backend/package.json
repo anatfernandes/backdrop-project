@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
-    "start": "npm run build && node dist/src/app.js",
+    "start": "npm run build && node dist/app.js",
     "dev": "NODE_ENV=development npm run dev:load-envs tsnd --respawn --transpile-only src/app.ts",
     "test": "NODE_ENV=test npm run test:load-envs jest --passWithNoTests --runInBand",
     "test:watch": "NODE_ENV=test npm run test:load-envs jest --watch --passWithNoTests --runInBand",
