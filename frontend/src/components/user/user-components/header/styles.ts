@@ -25,6 +25,12 @@ const Wrapper = styled.header<WrapperStyleType>`
     position: absolute;
     top: 75px;
   }
+
+  @media (max-width: 450px) {
+    button {
+      width: fit-content;
+    }
+  }
 `;
 
 export { Wrapper };
