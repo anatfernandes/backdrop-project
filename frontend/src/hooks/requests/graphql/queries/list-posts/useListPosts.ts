@@ -13,6 +13,7 @@ function useListPosts({ page = 1, limit = 20 }: ListPostsParamsType = {}) {
   const toast = useToast();
   const { t } = useLocale();
   const { data, loading, error, variables, refetch } = useQuery<PostsQueryResult>(POSTS, {
+    fetchPolicy: "network-only",
     variables: {
       data: {
         page,

@@ -8,6 +8,7 @@ function useListHomePosts({ page = 1, limit = 20 }: ListHomePostsParamsType = {}
   const toast = useToast();
   const { t } = useLocale();
   const { data, loading, error, refetch } = useQuery<PostsQueryResult>(POSTS, {
+    fetchPolicy: "network-only",
     variables: {
       data: {
         context: "home",
