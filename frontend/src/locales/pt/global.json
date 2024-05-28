@@ -81,6 +81,7 @@
       "PasswordEquality": "As senhas devem ser iguais!",
       "NameLengthRequired": "Seu nome deve ter entre 3 e 30 caracteres!",
       "UsernameLengthRequired": "Seu nome de usuário deve ter entre 3 e 30 caracteres!",
+      "UsernamePattern": "Seu nome de usuário deve conter apenas letras, números e underscores!",
       "AvatarExtension": "Seu avatar deve ser uma imagem!"
     },
     "@Submit": {

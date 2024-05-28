@@ -29,6 +29,10 @@ function SignUp() {
         message: t("SignUp.FormValidation.UsernameLengthRequired"),
       },
       {
+        rules: [/^[\w]+$/.test(form.username)],
+        message: t("SignUp.FormValidation.UsernamePattern"),
+      },
+      {
         rules: [form.password.length >= 6],
         message: t("SignUp.FormValidation.PasswordMinLengthRequired"),
       },

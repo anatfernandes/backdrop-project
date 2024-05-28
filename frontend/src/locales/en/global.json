@@ -79,6 +79,7 @@
     "FormValidation": {
       "NameLengthRequired": "Your name must be between 3 and 30 characters!",
       "UsernameLengthRequired": "Your username must be between 3 and 30 characters long!",
+      "UsernamePattern": "Your username must only contain letters, numbers and underscores!",
       "AvatarExtension": "Your avatar must be an image!",
       "PasswordMinLengthRequired": "Password must be at least 6 characters long!",
       "PasswordEquality": "Passwords must be the same!"
