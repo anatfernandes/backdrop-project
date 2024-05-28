@@ -1,7 +1,8 @@
-import { ApolloError } from "@apollo/client";
+import { GetGraphqlErrorParamType, NetworkErrorType } from "./types";
 
-function getGraphqlError(error: ApolloError) {
-  const { networkError } = error;
+function getGraphqlError(error: GetGraphqlErrorParamType) {
+  const networkError = error.networkError as unknown as NetworkErrorType;
+
   const { message = "An error has occurred!" } =
     networkError?.result?.errors?.[0] || error;
 
