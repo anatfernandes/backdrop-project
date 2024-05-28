@@ -10,6 +10,7 @@ function Post({ post }: Readonly<PostParamsType>) {
   const { handleDeletePost } = useDeletePost();
   const { modalConfig, handleCloseModal, handleOpenModal } = useModal();
   const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState(post.comments);
 
   function handleConfirmModal() {
     handleDeletePost(post.id);
@@ -37,9 +38,9 @@ function Post({ post }: Readonly<PostParamsType>) {
 
       <Wrapper.Divider />
 
-      <Footer post={post} handleShowComments={handleShowComments} />
+      <Footer post={post} comments={comments} handleShowComments={handleShowComments} />
 
-      {showComments && <Comments post={post.id} />}
+      {showComments && <Comments post={post.id} handleUpdateComments={setComments} />}
     </Wrapper>
   );
 }

@@ -4,6 +4,7 @@ import { CallbackType } from "../../../../utils/protocols";
 
 type FooterParamsType = {
   post: PostType;
+  comments: number;
   handleShowComments: CallbackType;
   [key: string]: any;
 };

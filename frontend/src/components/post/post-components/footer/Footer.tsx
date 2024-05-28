@@ -8,7 +8,12 @@ import { Icon } from "../../../shared";
 import { Wrapper } from "./styles";
 import { FooterParamsType } from "./types";
 
-function Footer({ post, handleShowComments, ...other }: Readonly<FooterParamsType>) {
+function Footer({
+  post,
+  comments,
+  handleShowComments,
+  ...other
+}: Readonly<FooterParamsType>) {
   const { t } = useLocale();
 
   const { handleLikePost } = useLikePost({ onError: updateLike });
@@ -95,7 +100,7 @@ function Footer({ post, handleShowComments, ...other }: Readonly<FooterParamsTyp
           aria-hidden
         />
 
-        <span id="quantity">{compactNumber(post.comments)}</span>
+        <span id="quantity">{compactNumber(comments)}</span>
       </button>
 
       <button
