@@ -29,7 +29,7 @@ function SignUp() {
         message: t("SignUp.FormValidation.UsernameLengthRequired"),
       },
       {
-        rules: [form.password.length <= 6],
+        rules: [form.password.length >= 6],
         message: t("SignUp.FormValidation.PasswordMinLengthRequired"),
       },
       {
