@@ -10,6 +10,7 @@ function useListUsersByName(name: string) {
   const { data, loading, error, refetch } = useQuery<UsersByNameQueryResult>(
     USERS_BY_NAME,
     {
+      fetchPolicy: "network-only",
       variables: { name },
       onError: (error) => {
         const title = t("Search.@Fetch.Error");
