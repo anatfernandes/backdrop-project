@@ -15,7 +15,8 @@ const Wrapper = styled.section`
 
   button {
     width: fit-content;
-    min-width: 180px;
+    min-width: max-content;
+    margin-left: 0.5rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
