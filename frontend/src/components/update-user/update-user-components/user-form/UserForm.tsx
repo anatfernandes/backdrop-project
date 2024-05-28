@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
-import { omit, pick } from "lodash";
+import { useNavigate } from "react-router-dom";
+import { cloneDeep, omit, pick } from "lodash";
 import { useUpdateUser } from "../../../../hooks/requests/graphql/mutations";
-import { useForm, useLocalStorage, useLocale } from "../../../../hooks";
+import { useForm, useLocalStorage, useLocale, useUser } from "../../../../hooks";
 import { validateImageRegex } from "../../../../utils";
 import { Form } from "../../../shared";
 import { TopicsSelect } from "../../../topics-select";
@@ -13,16 +14,18 @@ import {
   UserToUpdate,
 } from "./types";
 
-function UserForm({ user }: UserFormParamsType) {
+function UserForm({ user, redirect }: Readonly<UserFormParamsType>) {
   const { t } = useLocale();
+  const { setUser } = useUser();
   const { addInLocalStorage } = useLocalStorage();
   const { handleUpdateUser, loading } = useUpdateUser({ onSuccess });
-  const { form, updateForm, handleChange, handleForm } = useForm(user, {
+  const { form, updateForm, handleChange, handleForm } = useForm(cloneDeep(user), {
     validations,
     beforeSubmit,
   });
   const [aboutLength, setAboutLength] = useState(user.about?.length ?? 0);
   const { current: maxAboutLength } = useRef(200);
+  const navigate = useNavigate();
 
   function validations() {
     return [
@@ -69,7 +72,12 @@ function UserForm({ user }: UserFormParamsType) {
   }
 
   function onSuccess() {
-    addInLocalStorage(pick(form, ["name", "avatar", "background", "topics"]));
+    const newUser = pick(form, ["name", "avatar", "background", "topics"]);
+
+    addInLocalStorage(newUser);
+    setUser((prev) => ({ ...prev, ...newUser }));
+
+    if (redirect) navigate("/home");
   }
 
   return (

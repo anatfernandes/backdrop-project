@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { UserType, TopicType } from "../../../../services/entities";
 
-type UserFormParamsType = { user: UserType };
+type UserFormParamsType = {
+  user: UserType;
+  redirect?: boolean;
+  [key: string]: any;
+};
 
 type UserToUpdate = Pick<
   UserType,

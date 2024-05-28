@@ -11,7 +11,7 @@ function UpdateUser() {
   return (
     <Wrapper>
       {loading && <Loading />}
-      {user && <UserForm user={user} />}
+      {user && <UserForm user={user} redirect={!localStorageData.topics?.length} />}
     </Wrapper>
   );
 }
