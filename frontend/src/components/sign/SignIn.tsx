@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { api } from "../../services";
 import { UserType } from "../../services/entities";
-import { useToast, useForm, useLocale, useLocalStorage } from "../../hooks";
+import { useToast, useForm, useLocale, useLocalStorage, useUser } from "../../hooks";
 import { Form, Icon } from "../shared";
 import { SignInForm } from "./types";
 
 function SignIn() {
   const toast = useToast();
   const { t } = useLocale();
+  const { setUser } = useUser();
   const { addInLocalStorage } = useLocalStorage();
   const { form, handleChange, handleForm } = useForm({}, { validations });
   const [loading, setLoading] = useState(false);
@@ -34,6 +35,7 @@ function SignIn() {
       .postSignIn(form as SignInForm)
       .then((user) => {
         addInLocalStorage(user as UserType);
+        setUser(user as UserType);
         toast({ type: "success", text: t("SignIn.@Submit.Success") });
         navigate("/home");
       })

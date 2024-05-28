@@ -15,6 +15,7 @@ type FullUserType = {
   followed: [UserType];
   isFollowing: boolean;
   type: UserTypesType;
+  token: string;
   active: boolean;
   createdAt: string;
   updatedAt: string;
