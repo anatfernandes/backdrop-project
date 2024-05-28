@@ -20,7 +20,7 @@ function Users({
 
       <ul>
         {users.map((user) => (
-          <li>
+          <li key={user.id}>
             <Link to={`/users/${user.id}`} onClick={() => handleSetSearchUsers(false)}>
               <Avatar size="small" cursor="pointer" user={user} />
 
