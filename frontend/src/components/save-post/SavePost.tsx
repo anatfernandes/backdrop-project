@@ -24,7 +24,7 @@ function SavePost({ defaultPost }: SavePostParamsType = {}) {
     beforeSubmit,
   });
   const [loading, setLoading] = useState(false);
-  const [contentLength, setContentLength] = useState(0);
+  const [contentLength, setContentLength] = useState(defaultPost?.content?.length ?? 0);
   const { current: maxContentLength } = useRef(2400);
   const navigate = useNavigate();
 
