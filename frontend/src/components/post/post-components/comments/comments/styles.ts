@@ -5,8 +5,8 @@ const Wrapper = styled.section`
   height: auto;
   max-height: 300px;
   margin-top: 1.5rem;
-  padding: 0 1rem 1rem 0;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
 
   #no-data {
     width: 100%;
@@ -15,6 +15,14 @@ const Wrapper = styled.section`
     margin-top: 2rem;
     font-size: 0.9rem;
     color: var(--dark-gray);
+  }
+
+  div#comments-section {
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem 1rem 0;
+    overflow: scroll;
   }
 
   @media (max-width: 500px) {

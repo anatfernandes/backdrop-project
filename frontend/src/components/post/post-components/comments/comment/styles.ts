@@ -41,7 +41,8 @@ const Content = styled(Card)`
     }
 
     #user {
-      height: 1rem;
+      min-height: 1rem;
+      height: auto;
     }
 
     #date span {

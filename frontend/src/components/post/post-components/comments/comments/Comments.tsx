@@ -24,15 +24,17 @@ function Comments({
     <Wrapper {...other}>
       <CreateComment post={post} />
 
-      {loading && <Loading size="small" />}
+      <div id="comments-section">
+        {loading && <Loading size="small" />}
 
-      {!loading && !comments.length && (
-        <span id="no-data">{t("Post.Comment.List.NoData")}</span>
-      )}
+        {!loading && !comments.length && (
+          <span id="no-data">{t("Post.Comment.List.NoData")}</span>
+        )}
 
-      {comments.map((comment, index) => (
-        <Comment key={`${comment.message}-${index}`} comment={comment} />
-      ))}
+        {comments.map((comment, index) => (
+          <Comment key={`${comment.message}-${index}`} comment={comment} />
+        ))}
+      </div>
     </Wrapper>
   );
 }
