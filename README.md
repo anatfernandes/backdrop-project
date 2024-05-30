@@ -10,7 +10,7 @@ Connect with a community dedicated to driving positive change. Find and particip
 
 <br />
 
-**[Try](https://our-cause-app.web.app)**
+**[Try it](https://our-cause-app.web.app)**
 <br />
 **[Video Demo](https://youtu.be/oQ_LaWXJn3E)**
 
