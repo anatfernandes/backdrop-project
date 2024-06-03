@@ -12,7 +12,7 @@ Connect with a community dedicated to driving positive change. Find and particip
 
 **[Try it](https://our-cause-app.web.app)**
 <br />
-**[Video Demo](https://youtu.be/oQ_LaWXJn3E)**
+**[Presentation video](https://youtu.be/oQ_LaWXJn3E)**
 
 <br />
 
