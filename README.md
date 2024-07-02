@@ -10,10 +10,6 @@ Connect with a community dedicated to driving positive change. Find and particip
 
 <br />
 
-**[Try it](https://our-cause-app.web.app)**
-
-<br />
-
 **[Presentation video](https://youtu.be/oQ_LaWXJn3E)**
 
 <br />
